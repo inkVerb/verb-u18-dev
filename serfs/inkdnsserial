@@ -19,7 +19,9 @@ exit 8; fi
 ## Create the datestamp
 DATESTAMP="$(date '+%Y%m%d')"
 ## Set the increment for today
-touch /opt/verb/conf/inkdns/serial
+### Make sure we have a count file
+if [ ! -f "/opt/verb/conf/inkdns/serial" ]; then
+/bin/echo "0" > /opt/verb/conf/inkdns/serial; fi
 OLDSERIAL="$(/bin/cat /opt/verb/conf/inkdns/serial)"
 ### Keep it to two digits
 if [ "${OLDSERIAL}" -gt "98" ]; then

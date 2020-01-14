@@ -59,8 +59,6 @@ On a fresh Ubuntu VPS with ssh keys already installed...
 
 `./make-verber 4` (or other number for swap size in GB: 1, 2, 4, 8, 16, 32, 64)
 
-*It may ask for a password, just press Enter*
-
 *(There is an additional option in `./make-verber` to set the mysql root password, but it is best for that to be automated because you don't need it unless you have some preexisting reason)*
 
 This: `./setupverb [host] [namespace] [tld] [email] [serverIPv4] [serverIPv6 - if none use IPv6NA ] [SSLemail] [php.file-limit] [php.up-size] [php.city] [new-port] [new-boss] [boss-pass] [update-repo - optional]`...

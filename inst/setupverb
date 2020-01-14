@@ -172,7 +172,7 @@ fi
 serveDIR="$(/usr/bin/pwgen -s -1 6)"
 /bin/sed -i "s/host286/${HNAME}/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/tld286/${SERVERTLD}/" /opt/verb/conf/sitenameip
-/bin/sed -i "s/servetld286/${SERVERTLD}/" /opt/verb/conf/sitenameip
+/bin/sed -i "s/tldserve286/${SERVERTLD}/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/servedir286/${serveDIR}/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/serveuri286/${serveURI}/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/ip286/${SERVERIPV4}/" /opt/verb/conf/sitenameip
@@ -328,8 +328,8 @@ fi
 # Create the new boss user
 /usr/sbin/adduser ${NEWBOSS} --gecos ",,," --disabled-password
 /bin/echo "${NEWBOSS}:${NEWBOSSPASS}" | chpasswd
-/bin/usermod -a -G sudo ${NEWBOSS}
-/bin/usermod -a -G www-data ${NEWBOSS}
+/usr/sbin/usermod -a -G sudo ${NEWBOSS}
+/usr/sbin/usermod -a -G www-data ${NEWBOSS}
 /bin/ln -sfn /opt/verb/boss /home/${NEWBOSS}/
 ## User privilege specifi/bin/cation
 /bin/echo '# Added in inkVerb preserver setup' >> /etc/sudoers
@@ -385,7 +385,7 @@ fi
 /bin/sed -i "s/mailURI286/${nameURI}/g" /opt/verb/conf/inkdns/zones/db.*
 /bin/sed -i "s/mailURI286/${nameURI}/g" /opt/verb/conf/inkdns/db.dnsdomain
 #### Remove dup in the hosted site
-/bin/sed -i "s/include:${nameURI} include:${nameURI}/include:${nameURI}/" /opt/verb/conf/inkdns/zones/db.*
+/bin/sed -i "s/${nameURI} ${nameURI}/${nameURI}/" /opt/verb/conf/inkdns/zones/db.*
 
 ### nv.*
 /bin/sed -i "s/hostarpaip286/${SITEARPAIP4}/g" /opt/verb/conf/inkdns/zones/nv.*
