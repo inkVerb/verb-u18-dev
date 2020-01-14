@@ -1,0 +1,52 @@
+#!/bin/sh
+#inkVerb! repo donjon dragon, verb.ink
+#set -e
+
+# This updates the OrangeHRM repo package
+
+# How to use:
+## ./orangehrm.updaterepo
+
+
+CVAPPNAME=orangehrm
+# Include the repo versions
+. /opt/verb/conf/inklists/repoverlist
+DISTVER="${orangehrm}"
+
+cd /opt/verb/repo
+
+# Announce
+echo "Updating the OrangeHRM package to v${DISTVER}..."
+
+# Get the package
+wget https://sourceforge.net/projects/orangehrm/files/stable/${DISTVER}/orangehrm-${DISTVER}.zip
+if [ ! -f "orangehrm-${DISTVER}.zip" ]; then
+echo "Failed download."; touch "${CVAPPNAME}.failed"
+exit 4; else
+rm -f ${CVAPPNAME}.failed; fi
+## Check the hash
+CHECKSHA=$(sha1sum orangehrm-${DISTVER}.zip)
+if [ "${CHECKSHA}" = "${orangehrmsha}  orangehrm-${DISTVER}.zip" ]; then
+echo "Download checks out."
+else
+echo "SHA check failed. The downloaded file is not what was expected."
+exit 4
+fi
+
+# Set it as the new package
+rm -f ${CVAPPNAME}.legacy.vtxz
+touch ${CVAPPNAME}.vtxz
+mv ${CVAPPNAME}.vtxz ${CVAPPNAME}.legacy.vtxz
+unzip orangehrm-${DISTVER}.zip
+rm orangehrm-${DISTVER}.zip
+mv orangehrm-${DISTVER} ${CVAPPNAME}
+rm orangehrm-quick-start-guide.html
+/opt/verb/serfs/vtxzin ${CVAPPNAME}; wait
+rm -rf ${CVAPPNAME}
+
+# Make a record of current version
+echo "${DISTVER}" > ${CVAPPNAME}.ver.${DISTVER}
+
+# Finish
+echo "Done. This repo now has OrangeHRM v${DISTVER}."
+

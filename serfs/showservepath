@@ -1,0 +1,14 @@
+#!/bin/sh
+#inkVerbSerf! verb.ink
+#set -e
+
+# This displays the Verber service download URL
+
+# How to use:
+## ./showservepath
+
+
+. /opt/verb/conf/sitenameip
+
+/bin/echo "${SERVEPATH}"
+

@@ -1,0 +1,51 @@
+#!/bin/sh
+#inkVerb! repo donjon dragon, verb.ink
+#set -e
+
+# This updates the Roundcube repo package
+
+# How to use:
+## ./roundcube.updaterepo
+
+
+CVAPPNAME=roundcube
+# Include the repo versions
+. /opt/verb/conf/inklists/repoverlist
+DISTVER="${roundcube}"
+
+cd /opt/verb/repo
+
+# Announce
+echo "Updating the Roundcube package to v${DISTVER}..."
+
+# Get the package
+wget https://github.com/roundcube/roundcubemail/releases/download/${DISTVER}/roundcubemail-${DISTVER}-complete.tar.gz
+if [ ! -f "roundcubemail-${DISTVER}-complete.tar.gz" ]; then
+echo "Failed download."; touch "${CVAPPNAME}.failed"
+exit 4; else
+rm -f ${CVAPPNAME}.failed; fi
+## Check the hash
+CHECKSHA=$(shasum -a 256 roundcubemail-${DISTVER}-complete.tar.gz)
+if [ "${CHECKSHA}" = "${roundcubesha}  roundcubemail-${DISTVER}-complete.tar.gz" ]; then
+echo "Download checks out."
+else
+echo "SHA check failed. The downloaded file is not what was expected."
+exit 4
+fi
+
+# Set it as the new package
+rm -f ${CVAPPNAME}.legacy.vtxz
+touch ${CVAPPNAME}.vtxz
+mv ${CVAPPNAME}.vtxz ${CVAPPNAME}.legacy.vtxz
+tar -xvf roundcubemail-${DISTVER}-complete.tar.gz
+rm roundcubemail-${DISTVER}-complete.tar.gz
+mv roundcubemail-${DISTVER} ${CVAPPNAME}
+/opt/verb/serfs/vtxzin ${CVAPPNAME}; wait
+rm -rf ${CVAPPNAME}
+
+# Make a record of current version
+echo "${DISTVER}" > ${CVAPPNAME}.ver.${DISTVER}
+
+# Finish
+echo "Done. This repo now has Roundcube v${DISTVER}."
+

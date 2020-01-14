@@ -1,0 +1,51 @@
+#!/bin/bash
+#inkVerbSerf! verb.ink
+#set -e
+
+# This creates a client key for inkVPN
+## This is run automatically by inkvpninstall, but can be run separately
+## DEV This currently only supports one client, but could theoretically be made to create a client by any name by replacing "client" in this script
+
+# How to use:
+## ./inkvpnclientkey
+
+
+# Check if the directory exists
+if [ ! -d "/opt/verb/conf/inkvpn/certificates" ]; then
+/bin/echo "The OpenVPN \"certificates\" directory does not exist, something's wrong. Bye."; exit 0; fi
+
+# Include the configs
+. /opt/verb/conf/inkvpn/inkvpnstatus
+
+# Remove keys and start everything over
+cd /opt/verb/conf/inkvpn/certificates
+/bin/rm -f /opt/verb/conf/inkvpn/certificates/keys/{client.crt,client.csr,client.key}
+source ./vars && ./build-key --batch client
+/bin/mkdir -p clients && cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf clients/client.ovpn
+/bin/sed -i "s/remote my-server-1.*/remote ${HOSTNAME} ${INKVPNPORT}/" /opt/verb/conf/inkvpn/certificates/clients/client.ovpn
+/bin/sed -i "s/;user nobody/user nobody/" /opt/verb/conf/inkvpn/certificates/clients/client.ovpn
+/bin/sed -i "s/;group nogroup/group nogroup/" /opt/verb/conf/inkvpn/certificates/clients/client.ovpn
+/bin/sed -i 's/ca ca.crt/#ca ca.crt/' /opt/verb/conf/inkvpn/certificates/clients/client.ovpn
+/bin/sed -i 's/cert client.crt/#cert client.crt/' /opt/verb/conf/inkvpn/certificates/clients/client.ovpn
+/bin/sed -i 's/key client.key/#key client.key/' /opt/verb/conf/inkvpn/certificates/clients/client.ovpn
+/bin/sed -i 's/tls-auth ta.key 1/#tls-auth ta.key 1/' /opt/verb/conf/inkvpn/certificates/clients/client.ovpn
+/bin/echo "
+# Added by inkVerb #
+<ca>
+$(/bin/cat /opt/verb/conf/inkvpn/certificates/keys/ca.crt)
+</ca>
+<cert>
+$(/bin/cat /opt/verb/conf/inkvpn/certificates/keys/client.crt)
+</cert>
+<key>
+$(/bin/cat /opt/verb/conf/inkvpn/certificates/keys/client.key)
+</key>
+key-direction 1
+<tls-auth>
+$(/bin/cat /opt/verb/conf/inkvpn/certificates/keys/ta.key)
+</tls-auth>
+## Added by inkVerb ##
+" >> /opt/verb/conf/inkvpn/certificates/clients/client.ovpn
+
+# Set the download link and finish
+/opt/verb/serfs/inkvpnclientdl

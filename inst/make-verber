@@ -1,0 +1,231 @@
+#!/bin/sh
+#inkVerbMaker! verb.ink
+
+# This makes the initial inkVerb Verber server with a "boss" sudoer user, new SSH login port, the name286 namespace for setupverb
+## Prerequisite: Copy the Vubuntu directory contents (verb) to /var/local/
+## Prerequisite: make-verber-preserver
+
+# NOTE on MySQL:
+## The MySQL root password will be saved to a filename in the inst directory for your reference
+## This file is moved to verb/configs by setupverb
+## On a healthy Verber server, you will never need the MySQL root password except for special maintanence
+## Verber can create other superusers for MySQL with grant privileges for login to PHPMyAdmin
+## Should the MySQL root password become necessary it is a headache if lost. Hence, it is saved in this one lo/bin/cation and you don't need to keep track of it.
+
+# How to use:
+## ./make-verber [swap-size, choose GB: 1, 2, 4, 8, 16, 32, 64 - optional (2 default, must be set for root password)] [mysql root password - optional]
+
+# Eg:
+## ./make-verber 1 mysqlrootpass
+## ./make-verber 4
+## ./make-verber 2 chewcud62
+
+
+# Good housekeeping
+/bin/chmod 750 /opt/verb/serfs/*
+
+# Install in small groups to avoid breaking
+
+# Install /usr/bin/pwgen
+/usr/bin/apt-get install -y /usr/bin/pwgen
+
+# Install zip
+/usr/bin/apt-get install -y zip unzip
+
+# Install tools
+/usr/bin/apt-get install -y rename htop
+
+if [ -z "$1" ]; then
+SWAPSIZEMAKE="4"
+MYSQLPASS=$(/usr/bin/pwgen -0 -1 -A -B 11)
+else
+SWAPSIZEMAKE="$1"
+MYSQLBOSSPASS=$(/usr/bin/pwgen -s -1 10)
+ if [ -z "$2" ]; then
+ MYSQLPASS=$(/usr/bin/pwgen -0 -1 -A -B 11)
+ else
+ MYSQLPASS="$2"
+ fi
+fi
+
+# Verify SSH Directory
+cd ~
+if [ ! -d ~/.ssh ]; then
+/bin/mkdir .ssh
+fi
+
+# Swap
+/opt/verb/serfs/setswapsize ${SWAPSIZEMAKE}; wait
+## Enable swap at next startup
+/bin/echo "/var/swap.img    none    swap    sw    0    0" >> /etc/fstab
+
+# Snakeoil install
+/usr/bin/apt-get install -y ssl-cert
+
+# Link serfs & tools to boss box
+/bin/ln -sfn /opt/verb/serfs /opt/verb/boss/
+/bin/ln -sfn /opt/verb/tools /opt/verb/boss/
+
+# Link setupverb to serfs
+/bin/ln -sfn /opt/verb/inst/setupverb /opt/verb/serfs/
+
+# Link verb to root home
+/bin/ln -sfn /opt/verb /root/
+
+# Record the MySQL root password
+/bin/echo "${MYSQLPASS}" > /opt/verb/inst/mysqlrootpassword
+
+# LAMP Server
+/usr/bin/apt-get update
+/usr/bin/apt-get upgrade -y
+/usr/bin/dpkg --configure -a
+/usr/bin/apt-get autoremove -y
+## Set up MySQL password on install before installing LAMP stack
+/bin/echo "mysql-server mysql-server/root_password password ${MYSQLPASS}" | debconf-set-selections
+/bin/echo "mysql-server mysql-server/root_password_again password ${MYSQLPASS}" | debconf-set-selections
+#/usr/bin/apt-get -y install mysql-server
+## Continue with LAMP Server
+/usr/bin/apt-get install -y lamp-server^
+## Get mcrypt to work as of PHP 7.2
+/usr/bin/apt-get install -y php-dev gcc make autoconf libc-dev pkg-config
+####### mcrypt suspended for testing ###
+#/usr/bin/apt-get install -y \
+#  libmcrypt-dev \
+#  libreadline-dev
+#### Skip the pecl prompt with a new line
+#printf "\n" | pecl install mcrypt-1.0.1
+####### mcrypt ##########################
+## PHP extras
+/usr/bin/apt-get install -y \
+  php-curl \
+  php-gd \
+  php-mbstring \
+  php-apcu \
+  php-xml
+
+# MySQL conf for Postfix Admin
+/bin/echo "##### Added by inkVerb ######
+# This removes NO_ZERO_IN_DATE and NO_ZERO_DATE, which cause problems for
+# Postfix Admin code, from strict mode.
+sql_mode=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+##### End inkVerb #####
+" >> /etc/mysql/mysql.conf.d/mysqld.cnf
+/usr/sbin/service mysql restart
+
+# Stop using this to see how everything works
+# Use OpenSSL to create a unique Diffie-Helman Group file (security)
+#openssl dhparam -out /etc/ssl/private/dhparams.pem 2048
+#Bug? This is only temporary anyway
+#/bin/chmod 600 /etc/ssl/private/dhparams.pem
+
+# Apache
+/bin/cp /opt/verb/inst/root-config/etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/
+/bin/cp /opt/verb/inst/root-config/etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/
+/bin/cp /opt/verb/inst/root-config/etc/apache2/sites-available/* /etc/apache2/sites-available/
+/bin/cp /opt/verb/inst/root-config/etc/apache2/mods-available/ssl.conf /etc/apache2/mods-available/
+/bin/cp /opt/verb/inst/root-config/etc/apache2/conf-available/security.conf /etc/apache2/conf-available/
+/bin/cp -r /opt/verb/inst/conf/lab/html/0sitedefaultInProgress /var/www/html/
+/bin/cp -r /opt/verb/inst/conf/lab/html/0sitedefaultInProgress /var/www/html/vsslsitedefault
+/usr/sbin/a2enmod deflate expires headers rewrite ssl && a2ensite 000-default default-ssl && apache2ctl graceful
+
+## Create vip & vsftp web mod directories
+/bin/mkdir /srv/vip
+/bin/mkdir /srv/vip/_domains
+/bin/mkdir /srv/vip/_filecabinet
+/bin/mkdir /srv/vip/filers
+/bin/mkdir /srv/vip/files
+/bin/mkdir /srv/vip/sql
+/bin/mkdir /srv/vip/repo
+/bin/mkdir /srv/vip/_webapps
+/bin/mkdir /srv/vip/_subs.vip
+/bin/ln -sfn /srv/vip /var/www/
+/bin/ln -sfn /srv/vip /opt/verb/boss/
+/bin/ln -sfn /srv/vip /root/
+## And the domains directory for hosted domains
+/bin/mkdir /var/www/domains
+/bin/mkdir /var/www/forwards
+## Create inkVerb app directories
+/bin/mkdir /var/www/email
+/bin/mkdir /var/www/one
+/bin/mkdir /var/www/vapps
+## Own everything
+/bin/chown -R www-data:www-data /var/www
+/bin/chown -R www-data:www-data /srv/vip
+apache2ctl graceful
+
+# inkGet repo
+/bin/mkdir -p /opt/verb/repo
+
+# Blacklist OpenSSL recommended package
+# Package not found
+#/usr/bin/apt-get install -y openssl-blacklist
+
+# Memcached
+/usr/bin/apt-get install -y memcached
+## Set memory allo/bin/cation higher than 64M for heavier servers IF YOU WANT, such as 256
+#nano /etc/memcached.conf
+#.
+#-m 256
+
+##### What was this doing on the alpha server!? #######
+########## EVEN IF needed, should use a2enmod, NEVER link directly
+########## Besides, this is php7 and may not even be necessary, could relate to using inkCert/Letsencrypt, a jesse/ink discrepancy at the 16 update
+### Finish php5-imap link
+#/bin/ln -sf ../../mods-available/imap.ini /etc/php5/apache2/conf.d/20-imap.ini
+#apache2ctl graceful
+#########################################################
+
+# MySQL superuser to auto-create databases
+/usr/bin/mysql -uroot -p${MYSQLPASS} -e "
+CREATE USER mysqlboss@localhost;
+SET PASSWORD FOR mysqlboss@localhost=PASSWORD('${MYSQLBOSSPASS}');
+GRANT ALL PRIVILEGES ON *.* TO 'mysqlboss'@'localhost' IDENTIFIED BY '${MYSQLBOSSPASS}' WITH GRANT OPTION;
+FLUSH PRIVILEGES;"
+## Set the mysqlboss as the mysqlboss config file so the password is not in the line command
+/bin/echo "[client]
+user = mysqlboss
+password = ${MYSQLBOSSPASS}
+host = localhost" > /opt/verb/inst/mysqlboss.cnf
+
+# Local Apps (prep, not installed)
+## Install several tools necessary for Nextcloud
+/usr/bin/apt-get install -y php-bz2 php-curl php-gd php-imagick php-intl php-mbstring php-xml php-zip
+## Install curl to download Ghost and for repo update Donjon Knights
+/usr/bin/apt-get install -y curl
+## Enable port proxy mods for Ghost sites
+/usr/sbin/a2enmod proxy_http
+## Create directory for Ghost installs
+/bin/mkdir /var/www/ghost
+
+# PHP mods
+#phpenmod mcrypt
+
+# Monit
+/usr/bin/apt-get install -y monit
+## Copy configs (These seem to have precedence, files in /etc/monit seem to conflict with them but may be u/bin/sed instead
+/bin/mkdir /etc/monit/monitrc.d
+/bin/cp /opt/verb/inst/root-config/etc/monit/monitrc.d/acpid /etc/monit/monitrc.d/
+/bin/cp /opt/verb/inst/root-config/etc/monit/monitrc.d/apache2 /etc/monit/monitrc.d/
+/bin/cp /opt/verb/inst/root-config/etc/monit/monitrc.d/memcached /etc/monit/monitrc.d/
+/bin/cp /opt/verb/inst/root-config/etc/monit/monitrc.d/mysql /etc/monit/monitrc.d/
+/bin/cp /opt/verb/inst/root-config/etc/monit/monitrc.d/openssh-server /etc/monit/monitrc.d/
+/bin/cp /opt/verb/inst/root-config/etc/monit/monitrc.d/sshd /etc/monit/monitrc.d/
+/bin/systemctl reload monit
+
+# Delete the Diffie-Helman Group security file to prevent security risks (keep this verber unique)
+/bin/rm -f /etc/ssl/private/dhparams.pem
+
+# Delete the snakeoil pair to prevent security risks (keep this verber unique)
+/bin/rm -f /etc/ssl/certs/ssl-cert-snakeoil.pem
+/bin/rm -f /etc/ssl/private/ssl-cert-snakeoil.key
+
+# Restart Server and reconnect at the new port
+/bin/echo "
+The Verber™ server has been made and is ready to run setupverb.
+
+At this point, there is no urgent need to restart the server.
+"
+
+# Delete this one-time script
+/bin/rm /opt/verb/serfs/make-verber
+/bin/rm /opt/verb/inst/make-verber

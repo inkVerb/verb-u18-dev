@@ -1,0 +1,11 @@
+#!/bin/sh
+#inkVerbSerf! verb.ink
+#set -e
+
+# This turns off vapp MySQL vbak cron job
+
+# How to use:
+## ./setvappmysqlvbakoff
+
+/bin/rm rf /etc/cron.d/vappmysql-vbak
+

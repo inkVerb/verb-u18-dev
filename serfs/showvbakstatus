@@ -1,0 +1,11 @@
+#!/bin/sh
+#inkVerbSerf! verb.ink
+#set -e
+
+# This displays the vbak backup tools currently in cron
+
+# How to use:
+## ./showvbakstatus
+
+ls /etc/cron.d/*-vbak
+

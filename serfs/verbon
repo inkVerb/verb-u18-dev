@@ -1,0 +1,110 @@
+#!/bin/sh
+#inkVerbSerf! verb.ink
+#set -e
+
+# This turns on a tld of the verb sites, such as verb.red, but not the other verb.tld sites, all are on until turned off via verboff
+## This is done through a2ensite
+## For *.verb.one or custom *.verb.vip, this only turns on NAME.verb.one and one.NAME.verb.one
+## All other custom verb.one and custom verb.vip sites must be turned on again via newonesub
+
+# How to use:
+## ./verbon [tld]
+
+# Eg:
+## ./verbon kiwi
+
+
+# Include the config file
+. /opt/verb/conf/sitenameip
+. /opt/verb/conf/siteurilist
+
+SITEON=$1
+
+/bin/sed -i "s/VERB${SITEON}=.*/VERB${SITEON}=true/g" /opt/verb/conf/sitetldstatus
+
+if [ "${SITEON}" = "email" ]
+then
+    /usr/sbin/a2ensite ${emailURI} email.${emailURI} pfa.${emailURI} mail.${emailURI} rc.${emailURI}
+    /usr/sbin/apache2ctl graceful
+    /bin/echo "Done."
+exit 0
+fi
+
+if [ "${SITEON}" = "city" ]
+then
+    /usr/sbin/a2ensite ${cityURI} city.${cityURI} center.${cityURI}
+    /usr/sbin/apache2ctl graceful
+    /bin/echo "Done."
+exit 0
+fi
+
+if [ "${SITEON}" = "one" ]
+then
+    /usr/sbin/a2ensite ${oneURI} one.${oneURI}
+    /usr/sbin/apache2ctl graceful
+    /bin/echo "Done."
+exit 0
+fi
+
+
+if [ "${SITEON}" = "ink" ]
+then
+    /usr/sbin/a2ensite ${inkURI} ink.${inkURI} ask.${inkURI} bb.${inkURI} blog.${inkURI} code.${inkURI} home.${inkURI} shop.${inkURI} sn.${inkURI} wiki.${inkURI}
+    /usr/sbin/apache2ctl graceful
+    /bin/echo "Done."
+exit 0
+fi
+
+
+if [ "${SITEON}" = "blue" ]
+then
+    /usr/sbin/a2ensite ${blueURI} blue.${blueURI} nc.${blueURI} owncloud.${blueURI} seafile.${blueURI}
+    /bin/echo "Done."
+exit 0
+fi
+
+
+if [ "${SITEON}" = "vip" ]
+then
+    /usr/sbin/a2ensite ${vipURI} vip.${vipURI} cgi.${vipURI} ftp.${vipURI} files.${vipURI} fossil.${vipURI} mysql.${vipURI} net2ftp.${vipURI} repo.${vipURI}
+    /usr/sbin/apache2ctl graceful
+    /bin/echo "Done."
+exit 0
+fi
+
+
+if [ "${SITEON}" = "kiwi" ]
+then
+    /usr/sbin/a2ensite ${kiwiURI} kiwi.${kiwiURI} ampache.${kiwiURI} art.${kiwiURI} gallery.${kiwiURI} media.${kiwiURI} podcast.${kiwiURI} studio.${kiwiURI}
+    /usr/sbin/apache2ctl graceful
+    /bin/echo "Done."
+exit 0
+fi
+
+
+if [ "${SITEON}" = "pink" ]
+then
+    /usr/sbin/a2ensite ${pinkURI} pink.${pinkURI}
+    /usr/sbin/apache2ctl graceful
+    /bin/echo "Done."
+exit 0
+fi
+
+
+if [ "${SITEON}" = "red" ]
+then
+    /usr/sbin/a2ensite ${redURI} red.${redURI} act.${redURI} crm.${redURI} erp.${redURI} hrm.${redURI} odoo.${redURI} scm.${redURI}
+    /usr/sbin/apache2ctl graceful
+    /bin/echo "Done."
+exit 0
+fi
+
+
+if [ "${SITEON}" = "rocks" ]
+then
+    /usr/sbin/a2ensite ${rocksURI} rocks.${rocksURI}
+    /usr/sbin/apache2ctl graceful
+    /bin/echo "Done."
+exit 0
+fi
+
