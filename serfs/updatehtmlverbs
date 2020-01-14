@@ -199,7 +199,7 @@ fi
 
 # Serve URI
 /bin/rm -rf /var/www/html/${SITESERVE}.serve
-/bin/mkdir -p ${SITESERVE}.serve/${SERVEDIR}
+/bin/mkdir -p /var/www/html/${SITESERVE}.serve/${SERVEDIR}
 /bin/echo "<?php header(\"HTTP/1.1 301 Moved Permanently\"); header(\"Location: http://${nameURI}\"); die(); ?>" > /var/www/html/${SITETLD}.serve/index.php
 
 # Own

@@ -61,7 +61,7 @@ NEWBOSSPASS="${13}"
 VUPREPO="${14}"
 
 if [ -z "${14}" ]; then
-VUPREPO=verb-dev-update
+VUPREPO="verb-dev-update"
 fi
 
 if [ -z "${13}" ]; then
@@ -106,13 +106,8 @@ openssl dhparam -out /etc/ssl/private/dhparams.pem 2048
 /bin/mv /opt/verb/conf/sitetldstatus286 /opt/verb/conf/sitetldstatus
 /bin/mv /opt/verb/conf/siteinstallstatus286 /opt/verb/conf/siteinstallstatus
 ## Ensure scripts are executable
-#/bin/chmod 750 /opt/verb/conf/inkcert/*.sh
-#/bin/chmod 750 /opt/verb/conf/inkdns/*.sh
-# The above are replaced later wtih '/bin/chmod 660 -R /opt/verb/conf' later in this script
-/bin/chmod 750 /opt/verb/conf/inkcert/*.sh
-/bin/chmod 750 /opt/verb/conf/inkdns/*.sh
 /bin/chmod 750 /opt/verb/serfs/*
-/bin/chmod 750 /opt/verb/donjon/*
+/bin/chmod 750 /opt/verb/donjon/*.sh
 /bin/chmod 750 /opt/verb/donjon/repoupdate/*
 /bin/chmod 750 /opt/verb/donjon/wpaddsites/*.wpsh
 
@@ -148,7 +143,7 @@ pinkURI=\"pink.${DMODBASE}\"
 redURI=\"red.${DMODBASE}\"
 rocksURI=\"rocks.${DMODBASE}\"
 " > /opt/verb/conf/siteurilist
-## No/bin/rmal verb domains
+## Normal verb domains
 else
 /bin/echo "#!/bin/sh
 ## This is a config file for other verb scripts
@@ -177,7 +172,7 @@ fi
 serveDIR="$(/usr/bin/pwgen -s -1 6)"
 /bin/sed -i "s/host286/${HNAME}/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/tld286/${SERVERTLD}/" /opt/verb/conf/sitenameip
-/bin/sed -i "s/stld286/${SERVERTLD}/" /opt/verb/conf/sitenameip
+/bin/sed -i "s/servetld286/${SERVERTLD}/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/servedir286/${serveDIR}/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/serveuri286/${serveURI}/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/ip286/${SERVERIPV4}/" /opt/verb/conf/sitenameip
@@ -196,12 +191,12 @@ serveDIR="$(/usr/bin/pwgen -s -1 6)"
 /bin/sed -i "s/phpsize286M/${PHPSIZE}M/g" /opt/verb/conf/php.${VNAME}.ini
 /bin/sed -i "s/phptimecity286/${PHPCITY}/g" /opt/verb/conf/php.${VNAME}.ini
 /bin/sed -i "s/name286/${VNAME}/g" /opt/verb/conf/php.${VNAME}.ini
-sed -i "s/;open_basedir =.*/open_basedir = /var/www/" /opt/verb/conf/php."${VNAME}".ini
+/bin/sed -i "s/;open_basedir =.*/open_basedir = \/var\/www/" /opt/verb/conf/php."${VNAME}".ini
 
 # Get the current PHP version & set php.ini
 phpNum=$(/opt/verb/serfs/phpver)
 /bin/mv /etc/php/${phpNum}/apache2/php.ini /etc/php/${phpNum}/apache2/php.original.ini
-ln -sfn /opt/verb/conf/php.${VNAME}.ini /etc/php/${phpNum}/apache2/php.ini
+/bin/ln -sfn /opt/verb/conf/php.${VNAME}.ini /etc/php/${phpNum}/apache2/php.ini
 
 # sites-available
 ## Directories
