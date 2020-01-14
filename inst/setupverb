@@ -177,7 +177,7 @@ serveDIR="$(/usr/bin/pwgen -s -1 6)"
 /bin/sed -i "s/serveuri286/${serveURI}/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/ip286/${SERVERIPV4}/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/ipv6286/${SERVERIPV6}/" /opt/verb/conf/sitenameip
-/bin/sed -i "s/timecity286/${PHPCITY}/" /opt/verb/conf/sitenameip
+/bin/sed -i "s:timecity286:${PHPCITY}:" /opt/verb/conf/sitenameip
 /bin/sed -i "s/updaterepo286/${VUPREPO}/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/SITEEMAILTLD=.*/SITEEMAILTLD=\"${SVMAILTLD}\"/" /opt/verb/conf/sitemailpath
 /bin/sed -i "s/inkcertemail286/${SSLEMAIL}/" /opt/verb/conf/inkcert/inkcertstatus
@@ -189,7 +189,7 @@ serveDIR="$(/usr/bin/pwgen -s -1 6)"
 /bin/mv /opt/verb/conf/php.name286.ini /opt/verb/conf/php.${VNAME}.ini
 /bin/sed -i "s/phplimit286/${PHPLIMIT}/g" /opt/verb/conf/php.${VNAME}.ini
 /bin/sed -i "s/phpsize286M/${PHPSIZE}M/g" /opt/verb/conf/php.${VNAME}.ini
-/bin/sed -i "s/phptimecity286/${PHPCITY}/g" /opt/verb/conf/php.${VNAME}.ini
+/bin/sed -i "s:phptimecity286:${PHPCITY}:g" /opt/verb/conf/php.${VNAME}.ini
 /bin/sed -i "s/name286/${VNAME}/g" /opt/verb/conf/php.${VNAME}.ini
 /bin/sed -i "s/;open_basedir =.*/open_basedir = \/var\/www/" /opt/verb/conf/php."${VNAME}".ini
 
@@ -365,8 +365,8 @@ ${SERVERIPV6} ${hostURI} ${HNAME}" >> /etc/hosts
 fi
 
 # ARPA & inverse IP
-/opt/verb/serfs/setip4 ${SITEIP}
-/opt/verb/serfs/setip6 ${SITEIPV6}
+/opt/verb/serfs/setip4 "${SITEIP}"
+/opt/verb/serfs/setip6 "${SITEIPV6}"
 
 # Verber DNS records
 ## Include config
@@ -473,12 +473,15 @@ done
 
 # Instructions
 ######################### FIX inkCert instructions #########################
-/bin/echo "After 1. setting up any extra domains and subdomains, 2. turning off any unu/bin/sed verb domains and changing the email server setting if you choose,"
+/bin/echo "After 1. setting up any extra domains and subdomains, 2. turning off any unused verb domains and changing the email server setting if you choose,"
 ## Domain Mod?
 if /bin/grep -Fq "SITENAME=DOMAIN_MOD-" /opt/verb/conf/sitenameip; then
-/bin/echo "- Run for Letsencrypt: inkcertdole-all-verbs (or inkcertdole ${nameURI} if not using a single server)"
+/bin/echo "- Run for Certbot: inkcertdocb-all-verbs (or inkcertdocb ${nameURI} if not using a single server)"
 else
-/bin/echo "- Run for Letsencrypt: inkcertdole-all-verbs (or inkcertdole ${nameURI} if not using a single server)"
+/bin/echo "- Run for Certbot: inkcertdocb-all-verbs (or inkcertdocb ${nameURI} if not using a single server)"
+/bin/echo "OR"
+/bin/echo "- Install your DigitalOcean keys for automated Certbot with: updateinkcertcbdigoc"
+/bin/echo "- Run for Certbot: inkcertdocbdigoc-all-verbs (or inkcertdocbdigoc ${nameURI} if not using a single server)"
 fi
 ## Common message
 /bin/echo "- Then, set up email with postfix and roundcube.

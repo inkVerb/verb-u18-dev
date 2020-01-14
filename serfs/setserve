@@ -81,4 +81,4 @@ find /var/www/html/${vTLD}.serve/${sDIR}/* -type d -mmin +30 -exec rm -rf {} \;"
 /opt/verb/serfs/inkdnsserial ${!nServeURI}
 
 # Finish
-/bin/echo "Service download files set to: https://${SERVEPATH}"
+/bin/echo "Service download files set"

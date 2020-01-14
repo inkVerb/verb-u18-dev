@@ -61,6 +61,18 @@ This: `./setupverb [host] [namespace] [tld] [email] [serverIPv4] [serverIPv6 - i
 
 Eg: `./setupverb johnny johnny ink email 56.22.108.77 IPv6NA letsencrypt-messages@example.com 100 1000 America/New_York 22 boss bosspassword verb-dev-update`
 
+`cd ~/verb/serfs`
+
+`./updateinkcertcbdigoc YOUR_DIGITALOCEAN_API_KEY`
+
+`./inkcertdocbdigoc-all-verbs`
+
+`./inkcertdocbdigoc EACH_HOSTED_DOMAIN`
+
+`./installvmail YOUR_SECRET`
+
+All done!
+
 # Install Ink (optional)
 
 # Install Vrk (probably, but optional)

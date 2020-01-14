@@ -110,7 +110,7 @@ NEWCMPIP6=$(compress_ipv6 ${NEWIP6})
 NEWRARPA6=$(rarpa_ipv6 ${NEWEXPIP6})
 
 # Normal IP
-/bin/sed -i "s/SITEIPV6.*/SITEIPV6=\"${NEWCMPIP6}\"/" /opt/verb/conf/sitenameip
+/bin/sed -i "s/SITEIPV6=.*/SITEIPV6=\"${NEWCMPIP6}\"/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/SITEEXPIPV6.*/SITEEXPIPV6=\"${NEWEXPIP6}\"/" /opt/verb/conf/sitenameip
 /bin/sed -i "s/${SITEIPV6}/${NEWCMPIP6}/" /etc/hosts
 /bin/echo "IPv6 now set to: ${NEWCMPIP6}"

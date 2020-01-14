@@ -14,7 +14,8 @@
 NEWIP4="$1"
 
 # Normal IP
-/bin/sed -i "s@SITEIP.*@SITEIP=\"${NEWIP4}\"@" /opt/verb/conf/sitenameip
+/bin/sed -i "s:SITEIP=.*:SITEIP=\"${NEWIP4}\":" /opt/verb/conf/sitenameip
+/bin/sed -i "s:SITEIPV4=.*:SITEIPV4=\"${NEWIP4}\":" /opt/verb/conf/sitenameip
 /bin/sed -i "s:${SITEIP}:${NEWIP4}:" /etc/hosts
 
 # ARPA & inverse IP
