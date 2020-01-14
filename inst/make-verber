@@ -27,7 +27,7 @@
 # Install in small groups to avoid breaking
 
 # Install /usr/bin/pwgen
-/usr/bin/apt-get install -y /usr/bin/pwgen
+/usr/bin/apt-get install -y pwgen
 
 # Install zip
 /usr/bin/apt-get install -y zip unzip
