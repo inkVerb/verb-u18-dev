@@ -8,4 +8,4 @@
 ## ./serveclear
 
 
-/opt/verb/conf/donjon/rmdldirs.sh
+/opt/verb/donjon/rmdldirs.sh

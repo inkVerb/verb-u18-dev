@@ -87,11 +87,11 @@ LC_MEASUREMENT="en_US.UTF-8"
 ln -sfn /usr/share/zoneinfo/${PHPCITY} /etc/localtime
 
 # Snakeoil cert
-make-ssl-cert generate-default-snakeoil --force-overwrite
+/usr/sbin/make-ssl-cert generate-default-snakeoil --force-overwrite
 
 # Use OpenSSL to create a unique Diffie-Helman Group file (security)
 /bin/rm -f /etc/ssl/private/dhparams.pem
-openssl dhparam -out /etc/ssl/private/dhparams.pem 2048
+/usr/bin/openssl dhparam -out /etc/ssl/private/dhparams.pem 2048
 /bin/chmod 600 /etc/ssl/private/dhparams.pem
 
 # Site settings
@@ -203,8 +203,6 @@ phpNum=$(/opt/verb/serfs/phpver)
 /bin/chmod -R 750 /opt/verb/conf/site-files/newdomain.tld
 /bin/chmod -R 750 /opt/verb/conf/site-files/newvipsubdir
 /bin/chmod -R 750 /opt/verb/conf/site-files/newonesubdir
-## Serve URI
-/opt/verb/serfs/setserve
 ## Replace
 /bin/cp /opt/verb/inst/root-config/etc/apache2/sites-available/* /etc/apache2/sites-available/
 /bin/sed -i "s/pinkURI286/${pinkURI}/g" /etc/apache2/sites-available/*.conf
@@ -284,6 +282,9 @@ phpNum=$(/opt/verb/serfs/phpver)
 /usr/bin/rename "s/cashURI286/${cashURI}/" /opt/verb/conf/inkcert/cli-ini/*
 /usr/bin/rename "s/redURI286/${redURI}/" /opt/verb/conf/inkcert/cli-ini/*
 /usr/bin/rename "s/rocksURI286/${rocksURI}/" /opt/verb/conf/inkcert/cli-ini/*
+
+## Serve URI
+/opt/verb/serfs/setserve
 
 # www start indexes
 /opt/verb/serfs/updatehtmlverbs; wait

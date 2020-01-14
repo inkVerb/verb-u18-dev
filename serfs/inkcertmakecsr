@@ -30,7 +30,7 @@
 
 # Eg:
 ## ./inkcertmakecsr jesse.verb.ink jesse.verb.ink jesseinkinfo				# For a normal site cert
-## ./inkcertmakecsr mail.jesse.verb.ink mail.jesse.verb.ink jesseinkinfo			# For a mail cert 
+## ./inkcertmakecsr mail.jesse.verb.ink mail.jesse.verb.ink jesseinkinfo			# For a mail cert
 ## ./inkcertmakecsr inkisaverb.com *.inkisaverb.com/CN=inkisaverb.com inkverbinfo	# For a wildcard domain, including main domain
 ## ./inkcertmakecsr repo.inkisaverb.com repo.inkisaverb.com inkverbinfo			# For a specific subdomain
 ## ./inkcertmakecsr jimmy-inkisaverb.com jimmy@inkisaverb.com inkverbinfo		# For a user domain, note hyphen to replace @ in the domain field
@@ -63,7 +63,7 @@ if [ ! -f /etc/inkcert/csr/${DOMAIN}/${DOMAIN}.key.pem ]; then
 /bin/echo "${PASSPHRASE}" > /etc/inkcert/csr/${DOMAIN}/pemfraez
 /bin/chmod 600 pemfraez
 /bin/echo "Generating keys for ${DOMAIN}"
-openssl genrsa -des3 -out csr/${DOMAIN}/${DOMAIN}.key.pem -passout pass:/etc/inkcert/csr/${DOMAIN}/pemfraez 2048
+/usr/bin/openssl genrsa -des3 -out csr/${DOMAIN}/${DOMAIN}.key.pem -passout pass:/etc/inkcert/csr/${DOMAIN}/pemfraez 2048
 /bin/chmod 600 csr/${DOMAIN}/${DOMAIN}.key.pem
 else
 /bin/echo "This key already exists. So, renewing the cert and creating links to the verb/req and vip/req folders for renewal...
@@ -75,7 +75,7 @@ if [ -f /etc/inkcert/csr/${DOMAIN}/${DOMAIN}.csr.pem ]; then
 /bin/rm -f csr/${DOMAIN}/${DOMAIN}.key.pem
 fi
 /bin/echo "Creating CSR..."
-openssl req -config client/openssl.cnf \
+/usr/bin/openssl req -config client/openssl.cnf \
 	-key csr/${DOMAIN}/${DOMAIN}.key.pem \
 	-new -sha256 -out csr/${DOMAIN}/${DOMAIN}.csr.pem \
 	-passin pass:/etc/inkcert/csr/${DOMAIN}/pemfraez \
@@ -91,4 +91,3 @@ All wrapped-up, key and csr for ${DOMAIN} be waitin' in verb/req/ and vip/req/ f
 
 If you plan to give your csr to another Authority than inkCert, you will need: 1. their Root CA & Intermediate CA certificate chain file, 2. your domain's CA-signed certificate named \"${DOMAIN}.cert.pem\", and 3. all three of these PEM encoded files!
 "
-

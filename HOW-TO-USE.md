@@ -41,13 +41,9 @@ On a fresh Ubuntu VPS with ssh keys already installed...
 
 `apt-get install git`
 
-`cd /opt`
+`cd /opt && git clone https://github.com/inkverb/verb-dev`
 
-`git clone https://github.com/inkverb/verb-dev`
-
-`mv verb-dev verb`
-
-`cd verb/inst`
+`mv verb-dev verb && cd verb/inst`
 
 `./make-verber-preserver`
 

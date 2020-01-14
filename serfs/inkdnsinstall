@@ -57,11 +57,11 @@ cd /etc/bind
 ## DEV: FYI apparmor permissions are here: /etc/apparmor.d/usr.sbin.named
 
 # DNS serial number
-/bin/echo '0 0 * * * root /opt/verb/conf/donjon/rmserial.sh > /dev/null 2>&1' > /etc/cron.d/dnsserial
+/bin/echo '0 0 * * * root /opt/verb/donjon/rmserial.sh > /dev/null 2>&1' > /etc/cron.d/dnsserial
 /bin/chmod 0644 /etc/cron.d/dnsserial
 /bin/echo '#!/bin/sh
-/bin/rm -f /opt/verb/conf/inkdns/serial' > /opt/verb/conf/donjon/rmserial.sh
-/bin/chmod 750 /opt/verb/conf/donjon/rmserial.sh
+/bin/rm -f /opt/verb/conf/inkdns/serial' > /opt/verb/donjon/rmserial.sh
+/bin/chmod 750 /opt/verb/donjon/rmserial.sh
 
 # include the verb file
 /bin/echo '// Below added by #inkVerb-inkDNS' >> /etc/bind/named.conf.local
