@@ -124,7 +124,7 @@ if [ -f "/opt/verb/inst/domain.mod.conf" ]; then
 . /opt/verb/inst/domain.mod.conf
 /bin/echo "#!/bin/sh
 ## This is a config file for other verb scripts
-# Site URI List, whether they are active or not
+# Site URI List, whether active or not
 
 baseDOM=\"${DMODBASE}\"
 nameURI=\"${SERVERTLD}.${DMODBASE}\"
@@ -365,18 +365,18 @@ ${SERVERIPV6} ${hostURI} ${HNAME}" >> /etc/hosts
 fi
 
 # ARPA & inverse IP
-/opt/verb/serfs/setip4 "${SITEIP}"
-/opt/verb/serfs/setip6 "${SITEIPV6}"
+/opt/verb/serfs/setip4 "${SERVERIPV4}"
+/opt/verb/serfs/setip6 "${SERVERIPV6}"
 
 # Verber DNS records
 ## Include config
 . /opt/verb/conf/sitenameip
 ## Set the namespace, TLD, and IP values
 ### db.*
-/bin/sed -i "s/hostip286/${SITEIP}/g" /opt/verb/conf/inkdns/zones/db.*
-/bin/sed -i "s/hostip286/${SITEIP}/g" /opt/verb/conf/inkdns/db.dnsdomain
-/bin/sed -i "s/hostipv6286/${SITEIPV6}/g" /opt/verb/conf/inkdns/zones/db.*
-/bin/sed -i "s/hostipv6286/${SITEIPV6}/g" /opt/verb/conf/inkdns/db.dnsdomain
+/bin/sed -i "s/hostip286/${SERVERIPV4}/g" /opt/verb/conf/inkdns/zones/db.*
+/bin/sed -i "s/hostip286/${SERVERIPV4}/g" /opt/verb/conf/inkdns/db.dnsdomain
+/bin/sed -i "s/hostipv6286/${SERVERIPV6}/g" /opt/verb/conf/inkdns/zones/db.*
+/bin/sed -i "s/hostipv6286/${SERVERIPV6}/g" /opt/verb/conf/inkdns/db.dnsdomain
 /bin/sed -i "s/sitename286/${SITENAME}/g" /opt/verb/conf/inkdns/zones/db.*
 /bin/sed -i "s/sitename286/${SITENAME}/g" /opt/verb/conf/inkdns/db.dnsdomain
 /bin/sed -i "s/sitetld286/${SITETLD}/g" /opt/verb/conf/inkdns/zones/db.*
@@ -423,7 +423,7 @@ ${hostURI}.	IN  AAAA	hostipv6286
 /bin/sed -i "s/hostdomain286/${redURI}/g" /opt/verb/conf/inkdns/zones/nv.red
 /bin/sed -i "s/hostdomain286/${rocksURI}/g" /opt/verb/conf/inkdns/zones/nv.rocks
 ## Set host FQDN
-/bin/sed -i "s/;; End Root Site Defaults/${hostURI}\.\t\tIN  A\t\t${SITEIP}\n${hostURI}\.\t\tIN  AAAA\t${SITEIPV6}\n;; End Root Site Defaults/" /opt/verb/conf/inkdns/zones/db.${SERVERTLD}
+/bin/sed -i "s/;; End Root Site Defaults/${hostURI}\.\t\tIN  A\t\t${SERVERIPV4}\n${hostURI}\.\t\tIN  AAAA\t${SERVERIPV6}\n;; End Root Site Defaults/" /opt/verb/conf/inkdns/zones/db.${SERVERTLD}
 ## Set the URI names
 /bin/mv /opt/verb/conf/inkdns/zones/db.pink /opt/verb/conf/inkdns/zones/db.${pinkURI}
 /bin/mv /opt/verb/conf/inkdns/zones/db.email /opt/verb/conf/inkdns/zones/db.${emailURI}
@@ -480,7 +480,7 @@ if /bin/grep -Fq "SITENAME=DOMAIN_MOD-" /opt/verb/conf/sitenameip; then
 else
 /bin/echo "- Run for Certbot: inkcertdocb-all-verbs (or inkcertdocb ${nameURI} if not using a single server)"
 /bin/echo "OR"
-/bin/echo "- Install your DigitalOcean keys for automated Certbot with: updateinkcertcbdigoc"
+/bin/echo "- Install your DigitalOcean keys for automated Certbot with: setinkcertcbdigoc"
 /bin/echo "- Run for Certbot: inkcertdocbdigoc-all-verbs (or inkcertdocbdigoc ${nameURI} if not using a single server)"
 fi
 ## Common message

@@ -73,7 +73,7 @@ This has a few advantages to the webmaster, saves money, and pays the bills.
 		* Follow in-file instructions, requires parameters
 
 4. SSL certs: keys, certbot, email
-	i. `updateinkcertcbdigoc LONGKEY` add the key from DigitalOcean (if using a DigitalOcean droplet)
+	i. `setinkcertcbdigoc LONGKEY` add the key from DigitalOcean (if using a DigitalOcean droplet)
 	ii. `inkcertdocbdigoc-all-verbs` add certs for all verb.tld domains
 	iii. `installvmail SECPATH` install the webmail and postfix vmail server
 	iii. `inkcertdoemail` apply it to the email server

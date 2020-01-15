@@ -36,8 +36,8 @@ fi
 /usr/bin/pip3 install certbot-dns-digitalocean
 
 ## Certbot for DigitalOcean
-if [ $cbdigocKey != -n ]; then
-/opt/verb/serfs/updateinkcertcbdigoc $cbdigocKey
+if [ $cbdigocKey != "-n" ]; then
+/opt/verb/serfs/setinkcertcbdigoc $cbdigocKey
 fi
 
 ## inkCert proper

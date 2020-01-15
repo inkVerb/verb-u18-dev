@@ -63,7 +63,7 @@ Eg: `./setupverb johnny johnny ink email 56.22.108.77 IPv6NA letsencrypt-message
 
 `cd ~/verb/serfs`
 
-`./updateinkcertcbdigoc YOUR_DIGITALOCEAN_API_KEY`
+`./setinkcertcbdigoc YOUR_DIGITALOCEAN_API_KEY`
 
 `./inkcertdocbdigoc-all-verbs`
 
