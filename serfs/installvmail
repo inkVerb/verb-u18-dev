@@ -10,13 +10,14 @@
 ## If restoring from a backupvmail backup, the .vbak file must be in vip
 
 # How to use:
-## ./installvmail [RoundCube webmail path] [PostfixAdmin email pfa path] [PostfixAdmin setup secure option: "secure" otherwise use any other] [backup filename IF restoring from backupvmail backup, optional]
+## ./installvmail [RoundCube webmail path] [PostfixAdmin email pfa path - optional: if no other arguments and same as RoundCube] [PostfixAdmin setup secure option: "secure" otherwise use any other] [backup filename IF restoring from backupvmail backup, optional]
 
 # Eg:
 ## ./installvmail roundcubesecretpath postfixadminsecretpath secure  # Secure, but no backup
 ## ./installvmail rcbase pfabase secure myemailfile.vbak # Backup and secure
 ## ./installvmail rcbase pfabase no myemailfile.vbak  # Backup, not secure
 ## ./installvmail rciscool pfarocks # Not secure, no backup
+## ./installvmail vmailpath # Same path for RC and PFA, not secure, no backup
 
 
 
@@ -27,9 +28,13 @@
 . /opt/verb/conf/sitemailpath
 
 RC=$1
+if [ -z "$2" ]; then
+PFA=$1
+else
 PFA=$2
 EASYSECURE=$3
 BACKUPRESTORE=$4
+fi
 
 /opt/verb/serfs/installpostfixvmail; wait
 /opt/verb/serfs/installinksplat; wait
