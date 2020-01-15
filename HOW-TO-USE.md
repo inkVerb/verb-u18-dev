@@ -35,9 +35,7 @@ On a fresh Ubuntu VPS with ssh keys already installed...
 
 `ssh root@YOUR_IP_ADDRESS`
 
-`apt-get update`
-
-`apt-get upgrade`
+`apt-get update && apt-get upgrade -y`
 
 `apt-get install git`
 
