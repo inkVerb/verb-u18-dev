@@ -71,7 +71,9 @@ Eg: `./setupverb johnny johnny ink email 56.22.108.77 IPv6NA letsencrypt-message
 
 ## 1. Certbot
 
-`./setinkcertcbdigoc YOUR_DIGITALOCEAN_API_KEY`
+`./inkcertinstall YOUR_DIGITALOCEAN_API_KEY`
+
+`apt-get update && apt-get upgrade -y`
 
 `./inkcertdocbdigoc-all-verbs`
 
