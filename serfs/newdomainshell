@@ -16,8 +16,8 @@
 
 # Include settings
 . /opt/verb/conf/sitenameip
+. /opt/verb/conf/sitemailpath
 . /opt/verb/conf/inkcert/inkcertstatus
-. /opt/verb/conf/inkcert/sitemailpath
 
 NEWDOMAIN=$1
 

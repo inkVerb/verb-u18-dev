@@ -28,12 +28,17 @@ fi
 ## Letsencrypt - Currently, inkCert is largely powered by Letsencrypt, so it uses links. This will eventually change, but file paths won't.
 /usr/bin/add-apt-repository -y ppa:certbot/certbot
 /usr/bin/apt-get install -y python-certbot-apache
-# This may be redundant ::
-/usr/bin/apt-get install -y python-pip
-/usr/bin/pip install certbot-dns-digitalocean
+
+###DEV One or both of these is creating an error: pkg_resources.VersionConflict: (acme 0.31.0 (/usr/lib/python3/dist-packages), Requirement.parse('acme>=0.40.0'))
+### https://www.digitalocean.com/community/questions/new-error-this-week-certbot-dns-digitalocean-says-acme-0-31-0-usr-lib-python3-dist-packages-requirement-parse-acme-0-40-0
+### One or both of these was intended to use inkcert__cbdigoc
+## This may be redundant ::
+#/usr/bin/apt-get install -y python-pip
+#/usr/bin/pip install certbot-dns-digitalocean
 ## May be redundant ::
-/usr/bin/apt-get install -y python3-pip
-/usr/bin/pip3 install certbot-dns-digitalocean
+#/usr/bin/apt-get install -y python3-pip
+#/usr/bin/pip3 install certbot-dns-digitalocean
+###DEV
 
 ## Certbot for DigitalOcean
 if [ $cbdigocKey != "-n" ]; then
