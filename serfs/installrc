@@ -117,6 +117,7 @@ phpenmod intl zip
 wait
 
 # Settings
+/bin/cp /opt/verb/conf/lab/vmail/roundcube/mime.types /var/www/email/roundcube/
 /bin/cp /opt/verb/conf/lab/vmail/roundcube/config/roundcube286-config.inc.php /var/www/email/roundcube/config/config.inc.php
 /bin/cp /opt/verb/conf/lab/vmail/roundcube/config/roundcube286-defaults.inc.php /var/www/email/roundcube/config/defaults.inc.php
 /bin/sed -i "s/emailTLDURI286/${emailTLDURI}/g" /var/www/email/roundcube/config/config.inc.php
@@ -203,4 +204,3 @@ Set up all this at:
  https://rc.${emailTLDURI}/${RCFOLDER}/installer
 - Then run ./postinstallrc
 "
-
