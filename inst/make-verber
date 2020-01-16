@@ -35,18 +35,22 @@
 # Install tools
 /usr/bin/apt-get install -y rename htop
 
+# swap sice
 if [ -z "$1" ]; then
 SWAPSIZEMAKE="4"
-MYSQLPASS=$(/usr/bin/pwgen -0 -1 -A -B 11)
 else
 SWAPSIZEMAKE="$1"
-MYSQLBOSSPASS=$(/usr/bin/pwgen -s -1 10)
- if [ -z "$2" ]; then
- MYSQLPASS=$(/usr/bin/pwgen -0 -1 -A -B 11)
- else
- MYSQLPASS="$2"
- fi
 fi
+
+# MySQL root password
+if [ -z "$2" ]; then
+MYSQLPASS=$(/usr/bin/pwgen -0 -1 -A -B 11)
+else
+MYSQLPASS="$2"
+fi
+
+# MySQL boss password
+MYSQLBOSSPASS=$(/usr/bin/pwgen -s -1 10)
 
 # Verify SSH Directory
 cd ~
