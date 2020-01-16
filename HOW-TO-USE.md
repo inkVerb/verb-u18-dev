@@ -61,13 +61,20 @@ Eg: `./setupverb johnny johnny ink email 56.22.108.77 IPv6NA letsencrypt-message
 
 `cd ~/verb/serfs`
 
+## 1. Certbot
+
 `./setinkcertcbdigoc YOUR_DIGITALOCEAN_API_KEY`
 
 `./inkcertdocbdigoc-all-verbs`
 
-`./inkcertdocbdigoc EACH_HOSTED_DOMAIN`
+## 2. Vmail
 
 `./installvmail YOUR_SECRET`
+
+## 3. Start adding your domains
+
+`./inkcertdocbdigoc EACH_HOSTED_DOMAIN`
+
 
 All done!
 

@@ -15,8 +15,6 @@ $ORIGIN hostdomain286.
 ; Root Site Defaults
 @		IN  A		hostip286
 @		IN  AAAA	hostipv6286
-*.hostdomain286.		IN  A		hostip286
-*.hostdomain286.		IN  AAAA	hostipv6286
 ;; End Root Site Defaults
 
 ; Hostname Record Defaults
@@ -42,8 +40,8 @@ wiki.hostdomain286.		IN  A		hostip286
 wiki.hostdomain286.		IN  AAAA	hostipv6286
 
 ; Aliase Default
-*.hostdomain286.		IN  CNAME	hostdomain286.
 www.hostdomain286.		IN  CNAME	hostdomain286.
+*.hostdomain286.		IN  CNAME	hostdomain286.
 
 ; Text Record Defaults
 hostdomain286.		IN  TXT		"v=spf1 a mx a:mailURI286 ip4:hostip286 ip6:hostipv6286 -all"
