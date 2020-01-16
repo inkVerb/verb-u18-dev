@@ -33,6 +33,8 @@ Installing "Ink" to make a "Verber" into an "Inker" is optional if you are conne
 # Install Verb
 On a fresh Ubuntu VPS with ssh keys already installed...
 
+## 0. Set up the Verber
+
 `ssh root@YOUR_IP_ADDRESS`
 
 `apt-get update && apt-get upgrade -y`
