@@ -61,7 +61,13 @@ This: `./setupverb [host] [namespace] [tld] [email] [serverIPv4] [serverIPv6 - i
 
 Eg: `./setupverb johnny johnny ink email 56.22.108.77 IPv6NA letsencrypt-messages@example.com 100 1000 America/New_York 22 boss bosspassword verb-dev-update`
 
+`reboot`
+
+`ssh root@YOUR_IP_ADDRESS`
+
 `cd ~/verb/serfs`
+
+...Now you're ready to work...
 
 ## 1. Certbot
 
