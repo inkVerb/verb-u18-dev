@@ -34,14 +34,19 @@ fi
 # inkDNS
 if [ ! -f "/opt/verb/conf/inkdns/zones/db.${NEWDOMAIN}" ]; then
 /opt/verb/serfs/inkdnsadddomain ${NEWDOMAIN}; wait
-/opt/verb/serfs/inkdnsaddmail ${NEWDOMAIN}; wait
-/opt/verb/serfs/inkdnsaddinkdkim ${NEWDOMAIN}; wait
 fi
 
 # inkDKIM & vmail (if installed)
 if [ "${SITEMAILSTATUS}" != "EMAIL_NOT_INSTALLED" ]; then
 /opt/verb/serfs/addinkdkim ${NEWDOMAIN}; wait
 /opt/verb/serfs/vmailnewdomain ${NEWDOMAIN}; wait
+
+  # inkDNS for vmail
+  if [ -f "/opt/verb/conf/inkdns/zones/db.${NEWDOMAIN}" ]; then
+  /opt/verb/serfs/inkdnsaddmail ${NEWDOMAIN}; wait
+  /opt/verb/serfs/inkdnsaddinkdkim ${NEWDOMAIN}; wait
+  fi
+
 fi
 
 # Finish

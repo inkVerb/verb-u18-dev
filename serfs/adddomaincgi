@@ -33,7 +33,7 @@ if [ -f /etc/apache2/sites-available/${NEWDOMAIN}.conf ]; then
 fi
 
 # Copy and prepare Apache server config files
-/bin/cp /opt/verb/conf/site-files/conf/newdomaincgi.tld.conf /etc/apache2/sites-available/${NEWDOMAIN}.conf 
+/bin/cp /opt/verb/conf/site-files/conf/newdomaincgi.tld.conf /etc/apache2/sites-available/${NEWDOMAIN}.conf
 /bin/sed -i "s/newdomain.tld/${NEWDOMAIN}/g" /etc/apache2/sites-available/${NEWDOMAIN}.conf
 if [ ! -d /var/www/domains/${NEWDOMAIN} ]; then
 /bin/cp -rf /opt/verb/conf/site-files/newdomain.tld /var/www/domains/${NEWDOMAIN}
@@ -44,14 +44,8 @@ fi
 /bin/chmod -R 750 /var/www/domains/${NEWDOMAIN}
 /usr/sbin/a2ensite ${NEWDOMAIN}
 /usr/sbin/apache2ctl graceful
-
-# inkDNS
-/opt/verb/serfs/inkdnsadddomain ${NEWDOMAIN}
-wait
-/opt/verb/serfs/inkdnsaddmail ${NEWDOMAIN}
-wait
-/opt/verb/serfs/inkdnsaddinkdkim ${NEWDOMAIN}
-wait
+## Just in case...
+/bin/systemctl start apache2
 
 # inkCert
 ## Ensure that you don't get double entries
@@ -61,4 +55,3 @@ wait
 
 # Finish
 /bin/echo "Great! With no error messages, you are ready to run inkCert for ${NEWDOMAIN}, unless you want to add subdomains."
-

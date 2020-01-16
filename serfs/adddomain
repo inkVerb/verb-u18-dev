@@ -56,4 +56,3 @@ fi
 
 # Finish
 /bin/echo "Great! With no error messages, you are ready to run inkCert for ${NEWDOMAIN}, unless you want to add subdomains."
-
