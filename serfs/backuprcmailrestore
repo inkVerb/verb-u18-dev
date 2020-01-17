@@ -75,7 +75,7 @@ if [ ${RCFRESH} = "YES" ]; then
  /bin/echo "rc.${emailTLDURI} already declared for inkCert, moving on..."; else
  sed -i "/^domains =/ s/$/, rc.${emailTLDURI}/" /opt/verb/conf/inkcert/cli-ini/cli.${emailTLDURI}.ini
  fi
-fi 
+fi
 
 # Restore and include RC settings in the sitemail config
 . /var/www/email/roundcube/sitemailpass-old
@@ -99,7 +99,7 @@ cd /var/www/email/roundcube
 
 # Set the apache symlink
 /bin/cp -R /var/www/html/0ne /var/www/html/${SITEEMAILTLD}.rc
-/bin/ln -s /var/www/email/roundcube /var/www/html/${SITEEMAILTLD}.rc/${SITERCPATH}
+/bin/ln -sfn /var/www/email/roundcube /var/www/html/${SITEEMAILTLD}.rc/${SITERCPATH}
 /bin/chown -R www-data:www-data /var/www/html/${SITEEMAILTLD}.rc
 
 # Finish
@@ -109,5 +109,3 @@ It should be currently live at rc.${emailTLDURI}/${SITERCPATH}.
 
 A backup of the previous Roundcube on this server has been saved in the vip folder just in case.
 "
-
-

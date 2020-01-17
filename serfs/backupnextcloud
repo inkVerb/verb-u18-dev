@@ -53,7 +53,7 @@ Note that the app remains live.
 exit 0
 fi
 
-/bin/ln -s /var/www/vip/verb.nextcloud.${SECNAME}.vbak /var/www/html/${SITESERVE}.serve/${SERVEDIR}/
+/bin/ln -sfn /var/www/vip/verb.nextcloud.${SECNAME}.vbak /var/www/html/${SITESERVE}.serve/${SERVEDIR}/
 /bin/chown -R www-data:www-data /var/www/html/${SITESERVE}.serve/${SERVEDIR}/verb.nextcloud.${SECNAME}.vbak
 /bin/echo "Nextcloud has been backed up to the 'vip' folder and can also be downloaded at:
 
@@ -61,4 +61,3 @@ http://${SERVEPATH}/verb.nextcloud.${SECNAME}.vbak
 
 Note that the app remains live.
 "
-

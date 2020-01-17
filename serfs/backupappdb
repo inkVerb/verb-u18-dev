@@ -43,7 +43,7 @@ Note that the app remains live.
 exit 0
 fi
 
-/bin/ln -s /var/www/vip/sql/verb.${APPDBASE}.${SECNAME}.vbak.sql /var/www/html/${SITESERVE}.serve/${SERVEDIR}/
+/bin/ln -sfn /var/www/vip/sql/verb.${APPDBASE}.${SECNAME}.vbak.sql /var/www/html/${SITESERVE}.serve/${SERVEDIR}/
 /bin/chown -R www-data:www-data /var/www/html/${SITESERVE}.serve/${SERVEDIR}/verb.${APPDBASE}.${SECNAME}.vbak.sql
 /bin/echo "The database for ${APPNAME} has been backed up and can be downloaded at:
 

@@ -47,11 +47,10 @@ Note that the email server remains live."
 exit 0
 fi
 
-/bin/ln -s /var/www/vip/verb.roundcube.${SECNAME}.vbak /var/www/html/${SITESERVE}.serve/${SERVEDIR}/
+/bin/ln -sfn /var/www/vip/verb.roundcube.${SECNAME}.vbak /var/www/html/${SITESERVE}.serve/${SERVEDIR}/
 /bin/echo "The email server data has been backed up to the 'vip' folder and can also be downloaded at
 
 http://${SERVEPATH}/verb.roundcube.${SECNAME}.vbak
 
 Note that the email server remains live.
 "
-

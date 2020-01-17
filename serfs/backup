@@ -57,7 +57,7 @@ Note that the app remains live.
 exit 0
 fi
 
-/bin/ln -s /var/www/vip/verb.${APPNAME}.${SECNAME}.vbak /var/www/html/${SITESERVE}.serve/${SERVEDIR}/
+/bin/ln -sfn /var/www/vip/verb.${APPNAME}.${SECNAME}.vbak /var/www/html/${SITESERVE}.serve/${SERVEDIR}/
 /bin/chown -R www-data:www-data /var/www/html/${SITESERVE}.serve/${SERVEDIR}/verb.${APPNAME}.${SECNAME}.vbak
 /bin/echo "${APPNAME} has been backed up to the 'vip' folder and can also be downloaded at:
 
@@ -65,4 +65,3 @@ http://${SERVEPATH}/verb.${APPNAME}.${SECNAME}.vbak
 
 Note that the app remains live.
 "
-
