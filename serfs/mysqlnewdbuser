@@ -5,7 +5,7 @@
 # This adds a MySQL user (new or existing) to an existing "all" database as a user with limited permissions (client: data & structure) user with password
 
 # How to use:
-## ./mysqlnewdbuser [dbase] [new dbuser] [dbpassword optional]
+## ./mysqlnewdbuser [dbase] [new dbuser] [dbpassword - optional]
 
 
 DBASE="${1}"

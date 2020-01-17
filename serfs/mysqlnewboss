@@ -10,7 +10,7 @@
 
 DBBUSER=$1
 if [ -z ${2} ]; then
-DBBPASSWORD=$(/usr/bin/pwgen -s -1 10);
+DBBPASSWORD=$(/usr/bin/pwgen -s -1 10)
 else
 DBBPASSWORD=$2
 fi

@@ -47,7 +47,7 @@ fi
 # Unpack the file
 cd /var/www/vip
 /bin/mv ${FILENAME} ${APPNAME}.vtxz
-/opt/verb/serfs/vtxzout ${APPNAME}
+/opt/verb/serfs/vtxzout ${APPNAME}; wait
 /bin/mv ${APPNAME} /var/www/vapps/
 
 # Set up the vapp symlink
@@ -57,10 +57,15 @@ cd /var/www/vip
 /bin/mv /var/www/vapps/${APPNAME}/vapp.${APPNAME} /opt/verb/conf/
 . /opt/verb/conf/vapp.${APPNAME}
 
+# Create the SQL database
+/usr/bin/mysql --defaults-extra-file=/opt/verb/conf/mysqlboss.cnf -e "
+CREATE DATABASE ${APPDBASE} CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+GRANT ALL PRIVILEGES ON ${APPDBASE}.* TO '${APPDDBUSR}'@'localhost' IDENTIFIED BY '${APPDDBPAS}';
+FLUSH PRIVILEGES;"
+
 # Restore the database
-/opt/verb/serfs/mysqlnewdb ${APPDBASE} ${APPDDBUSR} ${APPDDBPAS}
-cd  /var/www/vapps/${APPNAME}
-/opt/verb/serfs/mysqlin ${APPDBASE}; wait
+cd /var/www/vapps/${APPNAME}
+/usr/bin/mysql --defaults-extra-file=/opt/verb/conf/mysqlboss.cnf ${APPDBASE} < ${APPDBASE}.sql; wait
 /bin/rm -f ${APPDBASE}.sql
 /bin/rm -f sitenameip*
 
@@ -72,4 +77,3 @@ cd  /var/www/vapps/${APPNAME}
 
 A backup of the previous ${APPNAME} on this server has been saved in the vip folder just in case.
 "
-
