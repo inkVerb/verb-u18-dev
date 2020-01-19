@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This creates a client key for inkVPN
 ## This is run automatically by inkvpninstall, but can be run separately

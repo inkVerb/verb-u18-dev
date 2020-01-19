@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This tells the Verber that cert has been revoked and to uninstall it
 ## This is run remotely by the Inker server

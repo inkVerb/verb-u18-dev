@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This prepares core Verber config files for a domain, with OpenDKIM profiles and keys and inkCert and inkDNS configs, WITHOUT including the actual domain itself or its Apache configs and html folder.
 ## This is intended as a subscript to be used by adddomain or adddomaincgi
@@ -39,7 +38,7 @@ fi
 # inkDKIM & vmail (if installed)
 if [ "${SITEMAILSTATUS}" != "EMAIL_NOT_INSTALLED" ]; then
 /opt/verb/serfs/addinkdkim ${NEWDOMAIN}; wait
-/opt/verb/serfs/vmailnewdomain ${NEWDOMAIN}; wait
+/opt/verb/serfs/vmaildomain ${NEWDOMAIN}; wait
 
   # inkDNS for vmail
   if [ -f "/opt/verb/conf/inkdns/zones/db.${NEWDOMAIN}" ]; then

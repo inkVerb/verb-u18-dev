@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This creates and signs the host key for this CA Verber
 ## This is used by inknetinstallca (Run by itselt, this only refreshes from when inknetinstallca first used this)

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This batch runs a revoke and uninstall of inkCert Certbot for DigitalOcean certs for a domain and replaces the Snakeoil certificate
 ## It applies only to one domain/subdomain at a time

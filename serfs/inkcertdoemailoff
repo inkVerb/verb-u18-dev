@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This script copies the postfix/dovecot configs to turn of inkCert SSL certs and use snakeoil certs instead
 

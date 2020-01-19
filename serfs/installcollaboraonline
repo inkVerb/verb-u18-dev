@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This Collabora Online to be used with Nextcloud
 ## Thanks for the awesome instructions from: https://nextcloud.com/collaboraonline/

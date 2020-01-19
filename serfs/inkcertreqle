@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This requests and gets Letsencrypt certs via inkCert-Letsencrypt for a given domain, including inkVerb namespace domains
 ## It also applies to all subdomains for that domain

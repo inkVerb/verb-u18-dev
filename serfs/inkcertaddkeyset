@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This unpacks the certificates from the CA and moves files where they need to go
 ## The .ict file produced by inkCert's Intermediate CA should be uploaded to /etc/inkcert/req/. Links to this folder are in verb/req and vip/req for convenience.

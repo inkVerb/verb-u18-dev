@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This deletes a Verber Client's profile and kills the inkNet JailKit user
 

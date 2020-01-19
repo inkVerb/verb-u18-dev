@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds a MySQL user (new or existing) to an existing "all" database as a user with limited permissions (client: data & structure) user with password
 

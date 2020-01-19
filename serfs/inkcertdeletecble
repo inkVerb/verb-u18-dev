@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This script revokes the inkCert LE or CB certs for a specified domain
 ## It applies to an entire domain

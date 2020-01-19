@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This puts the login credentials into the right place for a Verber
 ## This assumes that the key has been already uploaded to the CA, signed, downloaded from the CA, and put on this Verber in the www/vip folder

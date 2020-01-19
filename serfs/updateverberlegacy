@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This downloads and updates the Verber™ core files, including serfs and inklists
 ## If the verbdomain mod is in effect, it will automatically run again at the end of this update

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets the Secondary Inker for backup DNS for this Verber
 ## This has no IP settings because this is used for NS statements in the DNS records only

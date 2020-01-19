@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs ghost as an app to permanently replace a pre-created domain, such as domain.com or sub.domain.com
 ## Each ghost installation needs a different port, blog...ink uses the 2368 default

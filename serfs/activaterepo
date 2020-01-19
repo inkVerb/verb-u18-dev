@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This activates the repo....verb.vip folder so the web will provide an index
 

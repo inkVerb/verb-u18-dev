@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds a subdomain A & AAAA records to an existing GURU DNS record in the inkDNS zone file on this Verber
 

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This reinstall MySQL with new bosses and passwords after it has been removed via mysqluninstall
 

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This downloads and installs WordPress as a vapp with www/html/DOMAIN.TLD link from adddomain
 ## WordPress actually resides in www/vapps/wp.DOMAIN.TLD

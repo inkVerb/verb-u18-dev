@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets up a new single default verb.ink subdomain Apache config file, standard http dir, and letsencrypt declaration in cli.inkverb.ini.
 ## This is intended to be run as an appendage after setupverb has already set the server.

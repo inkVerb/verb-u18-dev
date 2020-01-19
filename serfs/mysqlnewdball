@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This creates a new MySQL database and a new global-permissions (all/admin) user with password
 

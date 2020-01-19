@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This restores a back up of the entire email server, including folders and database, that was made using backupvmail
 ## This only restores the users and their mailpfa as created in PostfixAdmin. Any PostfixAdmin setup will be overwritten.

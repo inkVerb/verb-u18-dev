@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This downloads and installs OctoberCMS as a vapp with www/html/DOMAIN.TLD link from newdomain
 ## October actually resides in www/vapps/october.DOMAIN.TLD

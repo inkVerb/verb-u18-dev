@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This script removes the Apache credentials and certificates for inkCert Proper certs for a domain and replaces the Snakeoil certificate
 ## It applies only to one domain/subdomain at a time

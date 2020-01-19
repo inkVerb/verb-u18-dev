@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This communicates with the inkCert server to send the csr and retrieve the cert package
 ## This runs a file remotely on the Inker server

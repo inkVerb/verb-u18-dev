@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This creates a user who can read everything on the server and has a vip symlink in the home folder
 

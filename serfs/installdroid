@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs droids from a git repo.
 

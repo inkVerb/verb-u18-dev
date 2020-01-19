@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds the www subdomain prefix to a domain's Apache config.
 ## This could be set to run automatically at some point, so may not be necessary independently.

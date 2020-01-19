@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This creates a powerful user who can read everything and access everything in the shared home folder /var/www/vip, including filers' home folders
 ## Requires installvsftpd

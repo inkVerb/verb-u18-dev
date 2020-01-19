@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This redirects all http traffic to https
 ## This could conflict with fixalias, due to wildcard cert limits of Letsencrypt.

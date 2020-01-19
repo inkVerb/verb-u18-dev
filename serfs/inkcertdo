@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This batch runs inkCert Proper request and install scripts for a given domain, including inkVerb namespace domains
 ## Use this also to renew a cert since inkcertreq auto detects existing certs and retains the original csr to have it signed again

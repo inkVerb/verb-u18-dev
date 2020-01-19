@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This activates a domain to work with either the FTP-accessible domains/ directory or a vapp
 

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This script revokes the inkCert-Letsencrypt certs for a specified domain
 ## It also applies to all subdomains for that domain

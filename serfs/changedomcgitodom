@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This script changes the Apache config file for a domain or subdomain from a cgi config to a regular config without changing the web folder contents
 ## This only changes contents of apache2/sites-available

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This unsets up a WordPress vapp for multisite after it has been setup
 

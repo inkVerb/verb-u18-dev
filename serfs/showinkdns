@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This displays the inkDNS DNS zone file for a specific domain on this Verber
 ## inkDNS is the inkVerb method of handling DNS zone records for domains hosted on its server

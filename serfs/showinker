@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This displays the Inker information that this Verber is connected to.
 ## This could be useful to retrieve names for setting up this Verber as a Client to the CA Inker

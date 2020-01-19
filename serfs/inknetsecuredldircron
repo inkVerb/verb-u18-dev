@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets a cron job to delete directories in NAME.NAME.verb.ink/inknet/ older than 30 minutes every 14 and 44 minutes past the hour.
 ## This is used by inknetmakeca

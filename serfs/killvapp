@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This completely removes an inkVerb web app, it's database, and it's config file
 ## WARNING: This does not backup the app, it just destroys it

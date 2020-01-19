@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This displays the inkNet Client key
 ## This is useful for getting the key to have it signed by the inker

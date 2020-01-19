@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This revokes MySQL users' boss permissions for web apps that require boss access upon install
 ## Current intended apps include Ampache, SuiteCRM

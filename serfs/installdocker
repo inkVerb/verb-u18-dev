@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs Docker, which is used by various apps, including Collabora Online for Nextcloud
 ## Instructions per VPS service for advanced connections: https://docs.docker.com/engine/installation/#docker-cloud

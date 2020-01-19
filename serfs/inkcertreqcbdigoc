@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This requests and gets Letsencrypt-Certbot wildcard certs via inkCert-Certbot for a given domain
 ## Prerequesite: inkcertinstall, domains added via newdomain/newdomaincgi or an existing and active verb domain on this Verber

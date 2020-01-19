@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This downloads and updates the Verber™ core files, including serfs and inklists
 ## This also runs scripts that make other changes that may affect the Verber

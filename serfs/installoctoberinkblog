@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This downloads and installs OctoberCMS to blog.NAME.verb.ink 
 ## October actually resides in www/vapps/october.inkblog

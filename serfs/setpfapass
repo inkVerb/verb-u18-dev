@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets the PostfixAdmin password hash for installation
 ## The hash is retrieved from the setup.php page

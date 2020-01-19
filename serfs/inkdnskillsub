@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This removes a subdomain A & AAAA records from an existing DNS record in the inkDNS zone file on this Verber
 

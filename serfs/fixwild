@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds the wildcard * subdomain wildcard to a domain's Apache config.
 

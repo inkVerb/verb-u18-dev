@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This finalizes branding changes after the LocalSettings.php file has been uploaded to the mediawiki folder
 

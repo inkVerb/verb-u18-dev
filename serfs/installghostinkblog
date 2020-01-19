@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs ghost as an app to be connected to blog.your-name.verb.ink
 

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This downloads and installs additional useful pluings for a preinstalled WordPress domain in the .../html/ folder
 ## You can use this for blog.NAME.verb.ink by using "ink.blog" as the domain

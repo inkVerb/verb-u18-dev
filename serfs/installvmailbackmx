@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This runs installpostfix and some extra scripts to setup a backup email server on this Verber
 ## Prerequisite: setupverb of course, and verbemail if you wish an email tld other than .email

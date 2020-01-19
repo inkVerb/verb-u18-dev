@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This updates an existing Postfix Admin installation once it has been updated in the inkVerb repo
 ## After, ensure that Postfix Admin works correctly, then run updatepfarmvbak

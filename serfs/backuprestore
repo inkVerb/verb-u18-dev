@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This restores a backup .vbak file from an inkVerb app backed-up using backup
 

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This removes the inkDKIM key from an existing DNS TXT record in the inkDNS zone file on this Verber
 

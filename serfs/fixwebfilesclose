@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds the necessary minimal .htaccess file to a web folder so none of its files can be read
 ## The "URI web path" is relative to the www/html/ folder; it must already exist.

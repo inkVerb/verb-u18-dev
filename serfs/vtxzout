@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This decompresses a .tvxz file and places its contents in same directory, all in the PWD
 ## The .vtxz file could simply be renamed to .tar.xz and be used accordingly

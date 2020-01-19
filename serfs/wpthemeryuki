@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds/updates the Ryuki child theme of Ryu to an existing WordPress installation
 

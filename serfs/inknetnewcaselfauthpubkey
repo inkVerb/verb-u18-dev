@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This creates the CA Verber/Inker master "authority" keys that this CA Verber/Inker uses to sign the host key on the same CA Verber/Inker itself and that Clients recognize
 ## This is used by inknetinstallca (Run by itselt, this only refreshes from when inknetinstallca first used this)

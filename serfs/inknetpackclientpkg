@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This creates the package with username and password for the Client to download and install.
 ## Prerequisite: inknetaddverberclient/inknetaddvrkclient (the requesting client must already exist on this serveer as an inkNet jailed user)

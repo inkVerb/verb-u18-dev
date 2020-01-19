@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This creates a normal ftp user, owning a unique ftp folder accessible at files....verb.vip/FTPUSERNAME/
 ## Requires installvsftpd and activatefiles on

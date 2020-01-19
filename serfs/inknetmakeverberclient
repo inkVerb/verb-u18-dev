@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets the settings for this Verber to be an inkNet Verber Client to a Inker CA Verber
 ## This can be run to update an existing config

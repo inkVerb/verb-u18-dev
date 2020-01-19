@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This removes the Roundcube backup generated when updating Roundcube
 # Prereq: Roundcube was updated via updaterc and is functioning properly

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This displays the settings and info for this Verber
 ## This is useful for many things, including Clients that need name and IP to connect to it

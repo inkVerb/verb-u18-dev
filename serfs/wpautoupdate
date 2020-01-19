@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds the Auto-Update must-use plugin from inkVerb with its 'mu-plugin' folder for an already-installed WordPress site.
 ## The plugin has further information embedded

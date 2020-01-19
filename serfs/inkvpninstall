@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs inkVPN, thus preparing the server to create a client file with inkvpnclient
 

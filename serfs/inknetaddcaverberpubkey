@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds/updates a CA Verber's public signing key to the known_hosts of the local Verber Client
 ## Prerequisite: inknetmakeverberclient (which runs this automatically at the end)

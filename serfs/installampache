@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs Ampache from inkisaverb.com/repo and links it to ampache....verb.kiwi
 

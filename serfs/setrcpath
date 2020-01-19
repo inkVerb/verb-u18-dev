@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This changes the path of the RoundCube web path
 ## This changes the path already set by installrc

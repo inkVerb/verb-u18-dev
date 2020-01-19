@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This script allows all of a user's main inkVerb subdomains to point to preferred apps, 
 # This is mainly aesthetic, defining a particular web app to be the king of its color

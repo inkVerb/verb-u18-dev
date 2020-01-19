@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds/updates the secure salts to wp-config.php files of a pre-installed (or installing) WordPress site in www/domains
 ## This does not normally need to be run on fresh WP installations since the same functions and behavior are embedded in the installwp serfs.

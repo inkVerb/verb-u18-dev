@@ -1,6 +1,5 @@
 z#!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds an existing domain to an existing ftpfiler's home ~/domains folder
 ## Prerequesite: newftpfiler used to create an ftpfiler

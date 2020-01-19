@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets a new Postfix SQL database password appendage and installs it where it is needed
 

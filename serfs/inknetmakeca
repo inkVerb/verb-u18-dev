@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets the settings for this Verber to be an inkNet CA Verber
 ## The inkNet domain MUST be the main verb tld and will be set that way automatically. This is for credentials in SSH signing.

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs postfix admin
 ## Prerequisite: verbemail IF using a verb domain other than verb.email

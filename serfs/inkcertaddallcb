@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This runs inkcertaddcb for a domain and all of its subdomains
 ## Prerequesite: inkcertreqcb

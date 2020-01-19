@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs inkCert-Certbot Apache credentials for a given domain, including inkVerb namespace domains
 ## Prerequesite: inkcertreqcbdigoc

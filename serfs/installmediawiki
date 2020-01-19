@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This downloads and installs MediaWiki from the inkisaverb.com repository and links it to wiki.your-name.verb.ink
 

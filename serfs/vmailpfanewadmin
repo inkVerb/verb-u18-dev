@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This creates a new admin for PFA
 ## Currently, this will not work until PFA has already been installed, but commented SQL code is in place to add the needed tables in installpostfixvmail, but that code may need to be updated

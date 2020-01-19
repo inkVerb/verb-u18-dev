@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This links a domain to it's wp location in vapps
 ## It is useful for backup restore wordpress instances, inclusion in scripts, or other backend server work

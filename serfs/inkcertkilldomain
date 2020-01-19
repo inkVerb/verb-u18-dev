@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This removes all inkCert files entirely for inkCert-LE and inkCert Proper
 

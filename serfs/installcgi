@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This turns on the www/cgi folder and links it to cgi....verb.vip
 

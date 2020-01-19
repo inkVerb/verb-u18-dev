@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This logs into a CA Verber
 ## You can use the name or the URI, host.namespace.verb.ink or host_namespace_verb_ink

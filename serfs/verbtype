@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbKnight! verb.ink
-#set -e
 
 # This displays the current Verber type
 

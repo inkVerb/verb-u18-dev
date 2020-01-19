@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This imports a MySQL database from a .sql file with the same name
 ## The .sql file to import must be in the vip/sql/ directory

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds a Vrk Client for this inkNet CA Verber to host
 ## This can be run to update an existing config

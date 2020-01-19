@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets a new serial number for an existing DNS record in the inkDNS zone file on this Verber
 

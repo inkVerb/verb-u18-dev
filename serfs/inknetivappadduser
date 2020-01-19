@@ -1,6 +1,5 @@
 #!/bin/sh
 #IVapp installer! verb.ink
-#set -e
 
 # This adds an IVapp user with settings for inkNet
 

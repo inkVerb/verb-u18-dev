@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This exports a MySQL database to a .sql file with the same name
 ## The .sql file appears in the vip/sql/ directory

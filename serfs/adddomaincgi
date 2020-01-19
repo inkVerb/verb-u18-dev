@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds domains with OpenDKIM profiles and keys and inkCert and Apache configs and enables CGI.
 ## This also creates a folder for the domain in www/domains which an ftpvip can access

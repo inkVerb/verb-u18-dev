@@ -1,7 +1,6 @@
 #
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs the PinkWrite email system
 ## THIS IS A SHELL IN BETA and does not work!

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This downloads and installs the InfiniteWP Server to a new directory to an existing domain in the .../html/ folder
 ## For security, this does NOT install to a pre-defined inkVerb subdomain, ie iwp.name.verb.ink. The site has too much control and must be set differently.

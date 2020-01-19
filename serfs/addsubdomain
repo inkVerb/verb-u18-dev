@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds a subdomain to an existing domain's inkCert certificate with OpenDKIM profiles and keys after everything in the inkVerb server is already setup via setupverb.
 ## Neither the domain nor the domain shell need to be installed already. This can be run first, all by itself.

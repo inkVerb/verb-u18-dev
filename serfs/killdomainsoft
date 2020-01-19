@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This "soft" kills a domain added with adddomain or adddomaincgi
 ## This removes the root Apache file, html/ symlink, root DNS declarations, and the root domain inkCert-LE declaration, but not other entire configs, such as the inkCert-LE config file that may apply to subdomains.

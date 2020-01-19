@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds a new subdomain to become newsub.your-name.verb.vip, accessible in the _subs.vip folder.
 # Dependencies: vsftpd and ftpvip or ftpfiler, run: installvsftpd, and newftpvip and/or newftpfiler

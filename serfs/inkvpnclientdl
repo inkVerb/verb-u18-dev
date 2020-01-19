@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This creates a temporary link for downloading the inkVPN client profile file
 ## This is run automatically by inkvpninstall and inkvpnclientkey, but can be run separately

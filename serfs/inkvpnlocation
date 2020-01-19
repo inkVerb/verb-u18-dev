@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets the inkVPN client and server location infornation
 ## This can be used by itself

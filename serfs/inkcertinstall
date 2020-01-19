@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs the inkCert SSL certificate service
 ## Currently, inkCert uses letsencrypt for main websites with options for "inkCert proper", the non-standard inkVerb CA service.

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds inkDKIM (OpenDKIM) records for a specific domain in the inkDKIM records
 ## This DOES NOT add the records to inkDNS zone files

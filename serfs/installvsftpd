@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs vsftpd and prepares it for use according to newftpvip, delftpvip, newftpfiler, and delftpfiler scripts
 # This is a prereqisite for ftpvips and ftpfilers and net2ftp

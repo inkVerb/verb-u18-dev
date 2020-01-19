@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This updates an existing Roundcube installation once it has been updated in the inkVerb repo
 ## After, ensure that Roundcube works correctly, then run updatercrmvbak

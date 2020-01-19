@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs the inkCert Self-Cert (SC) SSL certificate service
 ## This is a Prerequesite of inkcertsc

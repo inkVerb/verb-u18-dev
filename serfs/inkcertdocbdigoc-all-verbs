@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This script runs inkcertdocbdigoc for all native Verber domains... verb.ink, verb.blue, etc.
 

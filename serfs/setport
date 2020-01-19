@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets a new SSH login port number and disallows the previous port
 ## This could kill the current connection and require the user to logon again using the new port.

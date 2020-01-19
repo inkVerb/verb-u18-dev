@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs phpMyAdmin via apt-get to a defiend directory, to become available at mysql.your-name.verb.vip/DEFINED-DIRECTORY
 

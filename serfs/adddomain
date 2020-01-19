@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds a new domain, complete with OpenDKIM profiles and keys and inkCert and Apache configs
 ## This also creates a folder for the domain in www/domains which an ftpvip can access

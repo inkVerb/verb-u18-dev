@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This creates config files for this Verber to connect to a secondary CA Verber, such as other than the Inker
 ## This can be run to update an existing config

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This kills a subdomain after it has been added with addsubdomain or addsubdomaincgi
 

@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This uninstalls the inkSplat Dovecot utility, moving marked spapm to the Junk folder and learning spam
 

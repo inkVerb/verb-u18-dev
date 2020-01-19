@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This makes keys and a .csr file based on an inkCert profile made via inkcertsetcsr
 ## Also use this to renew an inkCert certificate

@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This batch runs inkCert-Certbot request and install scripts for a given domain, including inkVerb namespace domains
 ## It also applies to all subdomains for that domain

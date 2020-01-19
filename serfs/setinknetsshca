@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets new site-wide SSH CA for inkNet
 ## Theoretically, this should not be necessary unless inkVerb makes changes to their own domain.

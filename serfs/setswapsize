@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets or activates swap to a set size
 ## Options are 1, 2, 4, 8, 16, 32, 64 GB

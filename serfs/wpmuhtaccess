@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets up a WordPress vapp .htaccess file for use with multisite
 ## Prerequisites: wpmuseton, install the "Network" from the dashboard

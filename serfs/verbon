@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This turns on a tld of the verb sites, such as verb.red, but not the other verb.tld sites, all are on until turned off via verboff
 ## This is done through a2ensite

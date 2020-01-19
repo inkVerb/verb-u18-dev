@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This downloads and installs WordPress to blog.NAME.verb.ink
 ## WordPress actually resides in www/vapps/wp.inkblog

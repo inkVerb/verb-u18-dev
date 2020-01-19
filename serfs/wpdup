@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This duplicates a domain-based WordPress site at another domain
 ## The new domain/subdomain does NOT need to already exist, this will add it if it doesn't

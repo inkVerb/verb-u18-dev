@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This displays the inkNet CA info to be used by a Client by inknetmakeverberclient
 

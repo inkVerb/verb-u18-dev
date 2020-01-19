@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This opens MySQL with root in the terminal without entering any password
 ## You may specify a specific boss

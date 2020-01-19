@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets the main Inker as the backup DNS for this Verber
 ## The default backup nameservers are already ns0.inkisaverb.com and ns1.inkisaverb.com

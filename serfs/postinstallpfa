@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This should be run after PostfixAdmin has been setup through the web interface
 

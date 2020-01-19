@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This deletes an ftp user and his vsftpd folder, home folder, web accessible folder, and all contents
 

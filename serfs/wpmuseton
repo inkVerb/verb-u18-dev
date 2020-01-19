@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This sets up a WordPress vapp for multisite
 ## Specifically, this adds the multisite settings in wp-config.php necessary to begin the installation from the WordPress dashboard

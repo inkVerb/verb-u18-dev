@@ -1,6 +1,5 @@
 #!/bin/bash
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs inkCert Self-Cert Apache credentials for a given domain, including inkVerb namespace domains
 ## It applies only to one domain/subdomain at a time

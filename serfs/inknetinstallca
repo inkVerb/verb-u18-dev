@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs inkNet onto the Verber and...
 ## sets it up as a CA Verber for Vrk Station Clients and

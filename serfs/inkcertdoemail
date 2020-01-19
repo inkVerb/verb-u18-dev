@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This script copies the postfix/dovecot configs to use inkCert SSL
 ## This is experimental, may not work, and may not be necessary since inkCert does not currently make SSL certs for email use

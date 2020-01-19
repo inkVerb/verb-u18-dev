@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This "wildly" forwards an already-created domain to another domain
 ## All subdomains and paths after the domain will be forwarded, useful for forwarding after WP subdomain Multisite migrations

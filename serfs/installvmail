@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This runs installpostfix, installrc, and installpfa as one job
 ## Prerequisite: setupverb of course, and verbemail if you wish an email tld other than .email

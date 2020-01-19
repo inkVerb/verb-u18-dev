@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This changes the Tesseract theme's "Follow Us On" social icon Title prefix to what you set. It can be left null for simple social media titles
 ## This only applies to a specific domain

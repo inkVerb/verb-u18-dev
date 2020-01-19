@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This copies all original verb folders to www/html if they don't exist
 ## This is used by killvapp and others

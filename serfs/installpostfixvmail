@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs Postfix as the email server wtih Dovecot and OpenDKIM
 ## Prerequisite: sertupverb
@@ -127,7 +126,7 @@ host = localhost
     created DATETIME,
     modified DATETIME,
     active tinyint(1) NOT NULL default '1',
-    PRIMARY KEY  (domain)
+    PRIMARY KEY (domain)
   ) COMMENT='Postfix Vmail - Virtual Domains';"
 #### Below to manage admins ####
 #  CREATE TABLE IF NOT EXISTS admin (
@@ -149,7 +148,7 @@ host = localhost
 
 # Add base domains & addresse
 verberdomain="$nameURI"
-PASSWORD=$(/usr/bin/pwgen -s -1 15)
+PASSWORD=$(/usr/bin/pwgen -s -1 20)
 password="$(/bin/echo $PASSWORD | /usr/bin/openssl passwd -1 -stdin)"
 username="verberadmin@$nameURI"
 NAME="Change Me Dont Delete Me"
@@ -157,7 +156,7 @@ vmaildirectory="$nameURI/verberadmin/"
 mailboxsize="524288000" # 0.5GB, 2GB=2097152000, 1GB=1048576000, 5GB=5242880000
 
 /usr/bin/mysql --defaults-extra-file=/opt/verb/conf/mysqldb.vmail.cnf -e "INSERT INTO domain (domain, description, aliases, mailboxes, maxquota, quota, transport, backupmx, created, modified, active) VALUES ('$verberdomain', '$verberdomain', '1000', '1000', '10000', '2048', 'virtual', '0', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1);
-INSERT INTO mailbox (username, password, name, maildir, quota, local_part, domain, created, modified, active) VALUES ('$username', '$password', '$NAME', '$vmaildirectory', '$mailboxsize', '$emailUser', '$domain', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1);
+INSERT INTO mailbox (username, password, name, maildir, quota, local_part, domain, created, modified, active) VALUES ('$username', '$password', '$NAME', '$vmaildirectory', '$mailboxsize', 'verberadmin', '$nameURI', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1);
 INSERT INTO alias (address, goto, domain, created, modified, active) VALUES ('$username', '$username', '$domain', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1);
 INSERT INTO alias (address, goto, domain, created, modified, active) VALUES ('abuse@$nameURI', 'verberadmin@$nameURI', '$nameURI', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1);
 INSERT INTO alias (address, goto, domain, created, modified, active) VALUES ('hostmaster@$nameURI', 'verberadmin@$nameURI', '$nameURI', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1);

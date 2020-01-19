@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This adds a verb domain, already created, to the OpenDKIM library so it can be used in email on the DNS.
 ## This is a selected redundancy from newdomain, excluding all the work already done for verb domains.

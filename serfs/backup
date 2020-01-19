@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This backs up an installed webapp by exporting the database, app folder, and siteconfig file into one downloadable vbak file in the "vip" folder and symlinked to the main site domain.
 

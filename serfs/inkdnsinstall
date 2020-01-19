@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs Bind DNS for managing DNS records in the inkDNS zone file on this Verber
 ## This makes the server itself tha authoritative DNS server with a default/optional backup serfer

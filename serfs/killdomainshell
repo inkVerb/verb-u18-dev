@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This completely removes a domain's inkCert, Letsencrypt, inkDNS, and inkDKIM (OpenDKIM) profiles
 ## This does NOT:

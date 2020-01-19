@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This backs up the RoundCube app, including folders and database, in to one vbak file that can be downloaded
 ## This may not be important, but is available just in case.

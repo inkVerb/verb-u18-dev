@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This script revokes the inkCert Proper certs for a specified domain
 ## It applies only to one domain/subdomain at a time

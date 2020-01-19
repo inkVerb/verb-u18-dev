@@ -1,6 +1,5 @@
 #!/bin/sh
 #inkVerbSerf! verb.ink
-#set -e
 
 # This installs Odoo 10 as an app to be connected to odoo.your-name.verb.red
 
