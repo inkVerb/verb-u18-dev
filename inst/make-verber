@@ -132,6 +132,10 @@ sql_mode=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AU
 /bin/cp -r /opt/verb/inst/conf/lab/html/0sitedefaultInProgress /var/www/html/vsslsitedefault
 /usr/sbin/a2enmod deflate expires headers rewrite ssl && a2ensite 000-default default-ssl && apache2ctl graceful
 
+## tmp folder for a secure Apache & PHP
+/bin/mkdir -p /var/www/tmp
+/bin/chmod -R 777 /var/www/tmp
+
 ## Create vip & vsftp web mod directories
 /bin/mkdir /srv/vip
 /bin/mkdir /srv/vip/_domains

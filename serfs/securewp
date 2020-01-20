@@ -29,4 +29,8 @@ cd /var/www/html/${DOMAIN}/
 /bin/sed -i "s/define( 'LOGGED_IN_SALT',   .*/define( 'LOGGED_IN_SALT',   '${LOGGED_IN_SALT}' );/g" wp-config.php
 /bin/sed -i "s/define( 'NONCE_SALT',       .*/define( 'NONCE_SALT',       '${NONCE_SALT}' );/g" wp-config.php
 
-/bin/echo "${DOMAIN} now has secure strings."
+# Permissions
+/bin/chmod -R 644 wp-config.php
+
+/bin/echo "${DOMAIN} now has secure strings and permissions."
+

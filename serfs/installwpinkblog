@@ -99,6 +99,9 @@ NONCE_SALT=$(/usr/bin/pwgen -s -1 27)
 /bin/sed -i "s/define( 'LOGGED_IN_SALT',   .*/define( 'LOGGED_IN_SALT',   '${LOGGED_IN_SALT}' );/g" wp-config.php
 /bin/sed -i "s/define( 'NONCE_SALT',       .*/define( 'NONCE_SALT',       '${NONCE_SALT}' );/g" wp-config.php
 
+# Permissions
+/bin/chmod -R 644 wp-config.php
+
 #### fixhttps already done?
 if /bin/grep -q '##INKHTTPSFIX=fixed' /etc/apache2/sites-available/${DOMAIN}.conf; then
 /bin/sed -i "/WP_SITEURL/d" /var/www/vapps/wp.${DOMAIN}/wp-config.php

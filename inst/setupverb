@@ -191,12 +191,15 @@ serveDIR="$(/usr/bin/pwgen -s -1 6)"
 /bin/sed -i "s/phpsize286M/${PHPSIZE}M/g" /opt/verb/conf/php.${VNAME}.ini
 /bin/sed -i "s:phptimecity286:${PHPCITY}:g" /opt/verb/conf/php.${VNAME}.ini
 /bin/sed -i "s/name286/${VNAME}/g" /opt/verb/conf/php.${VNAME}.ini
-/bin/sed -i "s/;open_basedir =.*/open_basedir = \/var\/www/" /opt/verb/conf/php."${VNAME}".ini
+/bin/sed -i "s/;.*.open_basedir =.*/open_basedir = \/var\/www/" /opt/verb/conf/php."${VNAME}".ini
+/bin/sed -i "s/;.*.sys_temp_dir =.*/sys_temp_dir = \/var\/www\/tmp/" /opt/verb/conf/php."${VNAME}".ini
+/bin/sed -i "s/;.*.upload_tmp_dir =.*/upload_tmp_dir = \/var\/www\/tmp/" /opt/verb/conf/php."${VNAME}".ini
 
 # Get the current PHP version & set php.ini
 phpNum=$(/opt/verb/serfs/phpver)
 /bin/mv /etc/php/${phpNum}/apache2/php.ini /etc/php/${phpNum}/apache2/php.original.ini
 /bin/ln -sfn /opt/verb/conf/php.${VNAME}.ini /etc/php/${phpNum}/apache2/php.ini
+/bin/chmod 644 /etc/php/${phpNum}/apache2/php.ini
 
 # sites-available
 ## Directories
