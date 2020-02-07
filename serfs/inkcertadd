@@ -3,7 +3,7 @@
 
 # This installs inkCert Proper Apache credentials for a given domain, including inkVerb namespace domains
 ## It applies only to one domain/subdomain at a time
-## Prereq: inkcertreq
+## Prerequesite: inkcertreq
 ## This is intended as a subscript of inkcertdo
 
 # How to use:
