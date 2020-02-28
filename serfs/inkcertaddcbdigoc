@@ -100,11 +100,14 @@ if [ "${FIRSTINKCERTADDCB}" = "NOT_YET" ]; then
 ## Config status: first inkCert done
 /bin/sed -i "s/FIRSTINKCERTADDCB=\"NOT_YET\"/FIRSTINKCERTADDCBDIGOC=\"DONE\"/g" /opt/verb/conf/inkcert/inkcertstatus
 ## Create the cron job
-##DEV: Certbot automatically creates its own cron task, this is not necessary # NO, it doesn't!!
 ### Add CB's auto updater to the cron
-/bin/echo '3 3 * * * root /opt/verb/donjon/inkcertcb-renew-all.sh > /dev/null 2>&1' > /etc/cron.d/inkcertrenewcbcron
+/bin/echo '3 3 * * * root /opt/verb/donjon/inkcertcb-renew-all.sh' > /etc/cron.d/inkcertrenewcbcron
 /bin/chmod 0644 /etc/cron.d/inkcertrenewcbcron
 fi
+
+# Create the inkCert log file
+/bin/mkdir -p /var/log/inkcert/
+/usr/bin/touch /var/log/inkcert/inkcertle.log
 
 # Start Apache
 /bin/systemctl start apache2; wait

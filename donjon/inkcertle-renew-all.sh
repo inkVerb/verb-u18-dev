@@ -5,23 +5,23 @@
 . /opt/verb/conf/sitenameip
 
 # Stop Apache
-apachectl -k graceful-stop
+/usr/sbin/apachectl -k graceful-stop
 ## Hard stop in case it doesn't work
-service apache2 stop
+/bin/systemctl stop apache2
 
 # Renew LE
-certbot renew --dry-run
+/usr/local/bin/certbot renew --dry-run
 
 # Log
 if [ $? -ne 0 ]
  then
         ERRORLOG=`tail /var/log/inkcert/inkcertle.log`
-        echo -e "The Lets Encrypt verb.ink cert has not been renewed! \n \n" $ERRORLOG | mail -s "Lets Encrypt Cert Alert" ${SITEINKCERTEMAIL}   
+        echo -e "The Lets Encrypt verb.ink cert has not been renewed! \n \n" $ERRORLOG | mail -s "Lets Encrypt Cert Alert" ${SITEINKCERTEMAIL}
 fi
 
 # Start Apache
-service apache2 start
+/bin/systemctl start apache2
+/bin/systemctl restart apache2
 
 # Finish
 exit 0
-

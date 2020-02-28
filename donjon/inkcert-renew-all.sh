@@ -5,16 +5,16 @@
 . /opt/verb/conf/sitenameip
 
 # Stop Apache
-apachectl -k graceful-stop
+/usr/sbin/apachectl -k graceful-stop
 ## Hard stop in case it doesn't work
-service apache2 stop
+/bin/systemctl stop apache2
 
 # Renew
 ### Put the inkCert Proper renew script here!!!!!
 
 # Start Apache
-service apache2 start
+/bin/systemctl start apache2
+/bin/systemctl restart apache2
 
 # Finish
 exit 0
-
