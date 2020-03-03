@@ -29,7 +29,7 @@ if [ -z "$SECPATH" ]; then
 /bin/echo "You aren't entering the path. I quit."; exit 5; fi
 
 # Download the package
-wget -q https://${CAVERBERHOST}/inknet/${SECPATH}/${CLIENTNAME}.ink --no-check-certificate
+/usr/bin/wget -q https://${CAVERBERHOST}/inknet/${SECPATH}/${CLIENTNAME}.ink --no-check-certificate
 
 # Unpack
 /bin/mv ${CLIENTNAME}.ink ${CLIENTNAME}.vtxz

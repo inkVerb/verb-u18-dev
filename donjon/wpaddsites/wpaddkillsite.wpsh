@@ -19,12 +19,12 @@ KILLNAME=$1
 /opt/verb/serfs/killdomain ${KILLNAME}${WPADDNAMESUFF}.${WPADDDOMAIN}
 
 # Remove the wpadd credentials
-sed -i "s/${KILLNAME}.*//g" /opt/verb/donjon/wpaddsites/wpadd.list
-sed -i "s/${KILLNAME}.*//g" /opt/verb/donjon/wpaddsites/wpadd.human.list
-sed -i "s/*.${KILLNAME}//g" /opt/verb/donjon/wpaddsites/updatewpaddrepo.sh
+/bin/sed -i "s/${KILLNAME}.*//g" /opt/verb/donjon/wpaddsites/wpadd.list
+/bin/sed -i "s/${KILLNAME}.*//g" /opt/verb/donjon/wpaddsites/wpadd.human.list
+/bin/sed -i "s/*.${KILLNAME}//g" /opt/verb/donjon/wpaddsites/updatewpaddrepo.sh
 
 # Finish
-echo "The ${KILLNAME} wpadd archive has been removed from this Inker repo.
+/bin/echo "The ${KILLNAME} wpadd archive has been removed from this Inker repo.
 
 NOTE: The actual WordPress app is still in www/vapps.
 "

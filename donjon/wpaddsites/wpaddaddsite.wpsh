@@ -15,7 +15,7 @@ set -e
 ## ./wpaddaddsite blgplgs pt "This is Blogg-worthy plugins, plugins:.."
 
 
-WPADDNAMESPACE=$(echo $1 | cut -c1-7)
+WPADDNAMESPACE=$(/bin/echo $1 | cut -c1-7)
 WPADDPT=$2
 WPADDSITEDESCRIPT=$3
 
@@ -24,7 +24,7 @@ WPADDSITEDESCRIPT=$3
 
 # Check that domain is not installed
 if [ -d /var/www/html/${WPADDNAMESPACE}${WPADDNAMESUFF}.${WPADDDOMAIN} ]; then
-echo "That site already exists. Doing nothing."
+/bin/echo "That site already exists. Doing nothing."
 exit 8
 fi
 
@@ -36,8 +36,8 @@ fi
 /opt/verb/serfs/wpautoupdate ${WPADDNAMESPACE}${WPADDNAMESUFF}.${WPADDDOMAIN}
 
 # Add the wpadd credentials
-echo "${WPADDNAMESPACE}=\"${WPADDSITEDESCRIPT}\"" >> /opt/verb/donjon/wpaddsites/wpadd.list
+/bin/echo "${WPADDNAMESPACE}=\"${WPADDSITEDESCRIPT}\"" >> /opt/verb/donjon/wpaddsites/wpadd.list
 ## use -e to allow bash escape characters
-echo "${WPADDNAMESPACE}\t${WPADDPT}\t- ${WPADDSITEDESCRIPT}" >> /opt/verb/donjon/wpaddsites/wpadd.human.list
-echo "/opt/verb/donjon/wpaddsites/updatewpaddsite ${WPADDNAMESPACE} ${WPADDPT}" >> /opt/verb/donjon/wpaddsites/updatewpaddrepo.sh
+/bin/echo "${WPADDNAMESPACE}\t${WPADDPT}\t- ${WPADDSITEDESCRIPT}" >> /opt/verb/donjon/wpaddsites/wpadd.human.list
+/bin/echo "/opt/verb/donjon/wpaddsites/updatewpaddsite ${WPADDNAMESPACE} ${WPADDPT}" >> /opt/verb/donjon/wpaddsites/updatewpaddrepo.sh
 

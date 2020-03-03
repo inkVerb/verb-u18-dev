@@ -34,12 +34,12 @@ cd /etc/inkcert/sc
 cd /etc/inkcert/sc/ca
 /bin/mkdir -p priv newcerts certs crl
 /bin/chmod -R 700 /etc/inkcert/sc/ca/priv
-touch /etc/inkcert/sc/ca/index.txt
+/usr/bin/touch /etc/inkcert/sc/ca/index.txt
 /bin/echo 1000 > /etc/inkcert/sc/ca/serial
 cd /etc/inkcert/sc/intrm/
 /bin/mkdir -p priv newcerts certs crl csr
 /bin/chmod -R 700 /etc/inkcert/sc/intrm/priv
-touch /etc/inkcert/sc/intrm/index.txt
+/usr/bin/touch /etc/inkcert/sc/intrm/index.txt
 /bin/echo 1000 > /etc/inkcert/sc/intrm/serial
 cd /etc/inkcert/sc/cli
 /bin/mkdir -p priv certs csr

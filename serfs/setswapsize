@@ -14,7 +14,7 @@ SWAPSIZENO=$1
 ## Make sure it's off, quietly
 swapoff /var/swap.img 2>/dev/null
 cd /var
-touch swap.img
+/usr/bin/touch swap.img
 /bin/chmod 600 swap.img
 
 # Options from command parameters

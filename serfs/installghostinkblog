@@ -37,13 +37,13 @@ exit 0
 fi
 
 # Install Node.js (LTS req by Ghost) and npm
-curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+/usr/bin/curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 /usr/bin/apt-get install -y nodejs
 
 # Install Ghost
 cd /var/www/ghost
-curl -L https://ghost.org/zip/ghost-latest.zip -o ghost.zip
-unzip -uo ghost.zip -d ghostblog
+/usr/bin/curl -L https://ghost.org/zip/ghost-latest.zip -o ghost.zip
+/usr/bin/unzip -uo ghost.zip -d ghostblog
 /bin/rm -f ghost.zip
 
 ## Now install it with npm

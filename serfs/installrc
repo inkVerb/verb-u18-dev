@@ -159,7 +159,7 @@ if [ ! -d "/var/www/email/roundcube/plugins/contextmenu" ]; then
 # Sledgehammertime (Composer Plugins)
 ## This is excerpted from installrcinkplugins
 cd /var/www/email/roundcube
-curl -s https://getcomposer.org/installer | php
+/usr/bin/curl -s https://getcomposer.org/installer | php
 /bin/cp composer.json-dist composer.json
 ## Plugins
 ### Unfortuntately, I only know how to sed this one line at a time.

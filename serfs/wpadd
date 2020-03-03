@@ -32,7 +32,7 @@ cd /var/www/html/${DOMAIN}/wp-content
 if [ ! -f wp.${WPADDNAME}.zip ]; then
 /bin/echo "Can't download wp.${WPADDNAME}.zip. But, not quitting."
 exit 0; fi
-unzip -o wp.${WPADDNAME}.zip
+/usr/bin/unzip -o wp.${WPADDNAME}.zip
 /bin/rm -f wp.${WPADDNAME}.zip
 /bin/chown -R www-data:www-data /var/www/html/${DOMAIN}/wp-content
 

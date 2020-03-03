@@ -22,7 +22,7 @@ exit 0; fi
 
 # Debian Install
 ## Based on http://www.odoo.com/documentation/10.0/setup/install.html#setup-install-packaged
-wget -O - https://nightly.odoo.com/odoo.key | /usr/bin/apt-key add -
+/usr/bin/wget -O - https://nightly.odoo.com/odoo.key | /usr/bin/apt-key add -
 /bin/echo "deb http://nightly.odoo.com/10.0/nightly/deb/ ./" >> /etc/apt/sources.list.d/odoo.list
 /usr/bin/apt-get update -y --fix-missing && /usr/bin/apt-get install -y odoo
 

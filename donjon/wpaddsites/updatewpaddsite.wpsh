@@ -16,17 +16,16 @@ PT=$2
 
 # Update -u recursive -r
 cd /var/www/html/${NAME}${WPADDNAMESUFF}.${WPADDDOMAIN}/wp-content
-rm -f /opt/verb/repo/wp.${NAME}.zip
+/bin/rm -f /opt/verb/repo/wp.${NAME}.zip
 
 ## Based on variables
 if [ "${PT}" = "p" ]; then
-zip -r /opt/verb/repo/wp.${NAME}.zip plugins
+/usr/bin/zip -r /opt/verb/repo/wp.${NAME}.zip plugins
 fi
 if [ "${PT}" = "t" ]; then
-zip -r /opt/verb/repo/wp.${NAME}.zip themes
+/usr/bin/zip -r /opt/verb/repo/wp.${NAME}.zip themes
 fi
 if [ "${PT}" = "pt" ]; then
-zip -r /opt/verb/repo/wp.${NAME}.zip plugins
-zip -r /opt/verb/repo/wp.${NAME}.zip themes
+/usr/bin/zip -r /opt/verb/repo/wp.${NAME}.zip plugins
+/usr/bin/zip -r /opt/verb/repo/wp.${NAME}.zip themes
 fi
-

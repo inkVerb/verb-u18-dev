@@ -16,35 +16,35 @@ DISTVER="${fossil}"
 cd /opt/verb/repo
 
 # Announce
-echo "Updating the Fossil package to v${DISTVER}..."
+/bin/echo "Updating the Fossil package to v${DISTVER}..."
 
 # Get the package
-wget https://www.fossil-scm.org/fossil/uv/fossil-linux-x64-${DISTVER}.tar.gz
+/usr/bin/wget https://www.fossil-scm.org/fossil/uv/fossil-linux-x64-${DISTVER}.tar.gz
 if [ ! -f "fossil-linux-x64-${DISTVER}.tar.gz" ]; then
-echo "Failed download."; touch "${CVAPPNAME}.failed"
+/bin/echo "Failed download."; touch "${CVAPPNAME}.failed"
 exit 4; else
-rm -f ${CVAPPNAME}.failed; fi
+/bin/rm -f ${CVAPPNAME}.failed; fi
 ## Check the hash
 CHECKSHA=$(shasum -a 256 fossil-linux-x64-${DISTVER}.tar.gz)
 if [ "${CHECKSHA}" = "${fossilsha}  fossil-linux-x64-${DISTVER}.tar.gz" ]; then
-echo "Download checks out."
+/bin/echo "Download checks out."
 else
-echo "SHA check failed. The downloaded file is not what was expected."
+/bin/echo "SHA check failed. The downloaded file is not what was expected."
 exit 4
 fi
 
 # Set it as the new package
-rm -f ${CVAPPNAME}.legacy.vtxz
-touch ${CVAPPNAME}.vtxz
-mv ${CVAPPNAME}.vtxz ${CVAPPNAME}.legacy.vtxz
+/bin/rm -f ${CVAPPNAME}.legacy.vtxz
+/usr/bin/touch ${CVAPPNAME}.vtxz
+/bin/mv ${CVAPPNAME}.vtxz ${CVAPPNAME}.legacy.vtxz
 tar -xvf fossil-linux-x64-${DISTVER}.tar.gz
-rm fossil-linux-x64-${DISTVER}.tar.gz
+/bin/rm fossil-linux-x64-${DISTVER}.tar.gz
 /opt/verb/serfs/vtxzin ${CVAPPNAME}; wait
-rm -rf ${CVAPPNAME}
+/bin/rm -rf ${CVAPPNAME}
 
 # Make a record of current version
-echo "${DISTVER}" > ${CVAPPNAME}.ver.${DISTVER}
+/bin/echo "${DISTVER}" > ${CVAPPNAME}.ver.${DISTVER}
 
 # Finish
-echo "Done. This repo now has Fossil v${DISTVER}."
+/bin/echo "Done. This repo now has Fossil v${DISTVER}."
 

@@ -16,36 +16,36 @@ DISTVER="${owa}"
 cd /opt/verb/repo
 
 # Announce
-echo "Updating the OWA package to v${DISTVER}..."
+/bin/echo "Updating the OWA package to v${DISTVER}..."
 
 # Get the package
-wget https://github.com/padams/Open-Web-Analytics/archive/${DISTVER}.tar.gz
+/usr/bin/wget https://github.com/padams/Open-Web-Analytics/archive/${DISTVER}.tar.gz
 if [ ! -f "${DISTVER}.tar.gz" ]; then
-echo "Failed download."; touch "${CVAPPNAME}.failed"
+/bin/echo "Failed download."; touch "${CVAPPNAME}.failed"
 exit 4; else
-rm -f ${CVAPPNAME}.failed; fi
+/bin/rm -f ${CVAPPNAME}.failed; fi
 ## Check the hash
 CHECKSHA=$(shasum -a 256 ${DISTVER}.tar.gz)
 if [ "${CHECKSHA}" = "${owasha}  ${DISTVER}.tar.gz" ]; then
-echo "Download checks out."
+/bin/echo "Download checks out."
 else
-echo "SHA check failed. The downloaded file is not what was expected."
+/bin/echo "SHA check failed. The downloaded file is not what was expected."
 exit 4
 fi
 
 # Set it as the new package
-rm -f ${CVAPPNAME}.legacy.vtxz
-touch ${CVAPPNAME}.vtxz
-mv ${CVAPPNAME}.vtxz ${CVAPPNAME}.legacy.vtxz
+/bin/rm -f ${CVAPPNAME}.legacy.vtxz
+/usr/bin/touch ${CVAPPNAME}.vtxz
+/bin/mv ${CVAPPNAME}.vtxz ${CVAPPNAME}.legacy.vtxz
 tar -xvf ${DISTVER}.tar.gz
-rm ${DISTVER}.tar.gz
-mv Open-Web-Analytics-${DISTVER} ${CVAPPNAME}
+/bin/rm ${DISTVER}.tar.gz
+/bin/mv Open-Web-Analytics-${DISTVER} ${CVAPPNAME}
 /opt/verb/serfs/vtxzin ${CVAPPNAME}; wait
-rm -rf ${CVAPPNAME}
+/bin/rm -rf ${CVAPPNAME}
 
 # Make a record of current version
-echo "${DISTVER}" > ${CVAPPNAME}.ver.${DISTVER}
+/bin/echo "${DISTVER}" > ${CVAPPNAME}.ver.${DISTVER}
 
 # Finish
-echo "Done. This repo now has OWA v${DISTVER}."
+/bin/echo "Done. This repo now has OWA v${DISTVER}."
 

@@ -56,13 +56,13 @@ exit 4; fi
 /opt/verb/serfs/vtxzout ${CVAPPNAME}; wait
 ### Latest Release Candidate version (default)
 elif [ -z ${1} ] || [ ${LATREP}="latest" ]; then
-wget https://download.nextcloud.com/server/daily/latest.tar.bz2
+/usr/bin/wget https://download.nextcloud.com/server/daily/latest.tar.bz2
 if [ ! -f latest.tar.bz2 ]; then
 /bin/echo "Can't download Nextcloud. I quit."
 exit 4; fi
 
 /bin/rm -rf nextcloud
-tar -xvjf latest.tar.bz2
+/bin/tar -xvjf latest.tar.bz2
 /bin/rm -f latest.tar.bz2
 fi
 ## Install it

@@ -13,7 +13,7 @@
 
 # Check email is set
 if [ -z $1 ]; then
-echo "You must set an email for the repo package in InfiniteWP-Admin."
+/bin/echo "You must set an email for the repo package in InfiniteWP-Admin."
 exit 8; fi
 
 IWPEMAIL=$1
@@ -26,43 +26,43 @@ DISTVER="${iwpadmin}"
 cd /opt/verb/repo
 for VERFILE in ${CVAPPNAME}.ver.*; do
 if [ "${DISTVER}" -le "$(cat ${VERFILE})" ]; then
-echo "Current version in repo is up to date. Nothing to do."
+/bin/echo "Current version in repo is up to date. Nothing to do."
 exit 0; fi; done
 
 # Announce
-echo "Updating the InfiniteWP-Admin package to v${DISTVER}..."
+/bin/echo "Updating the InfiniteWP-Admin package to v${DISTVER}..."
 
 # Get the package
-wget https://infinitewp.com/iwp-admin-panel-download.php?installedEmail=${IWPEMAIL}
+/usr/bin/wget https://infinitewp.com/iwp-admin-panel-download.php?installedEmail=${IWPEMAIL}
 # Fix the package
-mv iwp-admin-panel-download.php?installedEmail=${IWPEMAIL} iwpadmin-${DISTVER}.zip
+/bin/mv iwp-admin-panel-download.php?installedEmail=${IWPEMAIL} iwpadmin-${DISTVER}.zip
 if [ ! -f "iwpadmin-${DISTVER}.zip" ]; then
-echo "Failed download."; touch "${CVAPPNAME}.failed"
+/bin/echo "Failed download."; touch "${CVAPPNAME}.failed"
 exit 4; else
-rm -f ${CVAPPNAME}.failed; fi
+/bin/rm -f ${CVAPPNAME}.failed; fi
 ## Check the hash
 ### Every download is different, can't be checked
 #CHECKSHA=$(shasum -a 256 iwpadmin-${DISTVER}.zip)
 #if [ "${CHECKSHA}" = "${iwpadminsha}  iwpadmin-${DISTVER}.zip" ]; then
-#echo "Download checks out."
+#/bin/echo "Download checks out."
 #else
-#echo "SHA check failed. The downloaded file is not what was expected. Did you set both the IWPAdmin version AND the IWPAdmin SHA per instructions?"
+#/bin/echo "SHA check failed. The downloaded file is not what was expected. Did you set both the IWPAdmin version AND the IWPAdmin SHA per instructions?"
 #exit 4
 #fi
 
 # Set it as the new package
-rm -f ${CVAPPNAME}.legacy.vtxz
-touch ${CVAPPNAME}.vtxz
-mv ${CVAPPNAME}.vtxz ${CVAPPNAME}.legacy.vtxz
-unzip iwpadmin-${DISTVER}.zip
-rm iwpadmin-${DISTVER}.zip
-mv IWPAdminPanel_v${DISTVER} ${CVAPPNAME}
+/bin/rm -f ${CVAPPNAME}.legacy.vtxz
+/usr/bin/touch ${CVAPPNAME}.vtxz
+/bin/mv ${CVAPPNAME}.vtxz ${CVAPPNAME}.legacy.vtxz
+/usr/bin/unzip iwpadmin-${DISTVER}.zip
+/bin/rm iwpadmin-${DISTVER}.zip
+/bin/mv IWPAdminPanel_v${DISTVER} ${CVAPPNAME}
 /opt/verb/serfs/vtxzin ${CVAPPNAME}; wait
-rm -rf ${CVAPPNAME}
+/bin/rm -rf ${CVAPPNAME}
 
 # Make a record of current version
-echo "${DISTVER}" > ${CVAPPNAME}.ver.${DISTVER}
+/bin/echo "${DISTVER}" > ${CVAPPNAME}.ver.${DISTVER}
 
 # Finish
-echo "Done. This repo now has InfiniteWP-Admin v${DISTVER}."
+/bin/echo "Done. This repo now has InfiniteWP-Admin v${DISTVER}."
 

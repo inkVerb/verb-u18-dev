@@ -52,7 +52,7 @@ if [ -f /etc/ssh/inknet/in_ca_${CAVERBERNAME}_key.pub ]; then
 /bin/mv /etc/ssh/inknet/in_ca_${CAVERBERNAME}_key.pub /etc/ssh/inknet/in_ca_${CAVERBERNAME}_key-vbak.pub
 fi
 ## Get the new key
-wget -q https://${CAVERBERHOST}/inknet/in_ca_${CAVERBERNAME}_key.pub --no-check-certificate
+/usr/bin/wget -q https://${CAVERBERHOST}/inknet/in_ca_${CAVERBERNAME}_key.pub --no-check-certificate
 ## Check if done correctly 
 if [ -f in_ca_${CAVERBERNAME}_key.pub ]; then
 /bin/rm -f /etc/ssh/inknet/in_ca_${CAVERBERNAME}_key-vbak.pub
@@ -67,7 +67,7 @@ fi
 #if [ ! -f ~/.ssh/known_hosts ];then
 #touch ~/.ssh/known_hosts; fi
 if [ ! -f "/opt/ivapp/inknet/sailor/${CLIENTSAILOR}/.ssh/known_hosts" ];then
-touch /opt/ivapp/inknet/sailor/${CLIENTSAILOR}/.ssh/known_hosts; fi
+/usr/bin/touch /opt/ivapp/inknet/sailor/${CLIENTSAILOR}/.ssh/known_hosts; fi
 ## Remove any previous keys for this CA (sed delete the line with the pattern)
 /bin/sed -i "/@cert-authority \*\.${CAVERBERURI}.*.${CAVERBERURI}/d" /opt/ivapp/inknet/sailor/${CLIENTSAILOR}/.ssh/known_hosts
 ## Include this new CA key

@@ -51,79 +51,79 @@ exit 4; fi
 ## Install main themes and plugins
 ### Plugins
 cd ${CVAPPNAME}/plugins
-wget https://github.com/rainlab/user-plugin/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/rainlab/user-plugin/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/rainlab/pages-plugin/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/rainlab/pages-plugin/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/anand-patel/oc-wysiwyg-editors/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/anand-patel/oc-wysiwyg-editors/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/gergo85/oc-backend-plus/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/gergo85/oc-backend-plus/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/rainlab/blog-plugin/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/rainlab/blog-plugin/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/vojtasvoboda/oc-userbanned-plugin/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/vojtasvoboda/oc-userbanned-plugin/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/gergo85/oc-devtools/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/gergo85/oc-devtools/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/theone74/oc-telegram-plugin/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/theone74/oc-telegram-plugin/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/rainlab/googleanalytics-plugin/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/rainlab/googleanalytics-plugin/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/rainlab/location-plugin/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/rainlab/location-plugin/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/rainlab/user-plugin/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/rainlab/user-plugin/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/rainlab/builder-plugin/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/rainlab/builder-plugin/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
 ### Themes
 cd ../themes
-wget https://github.com/octobercms/october/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/octobercms/october/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/goeroe/semantic-october-sass/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/goeroe/semantic-october-sass/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/rustytheitgod/Rusty-OctoberCMS-Bootstrap4-Blank/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/rustytheitgod/Rusty-OctoberCMS-Bootstrap4-Blank/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/Hambern/octobercms.blank-bootstrap-4/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/Hambern/octobercms.blank-bootstrap-4/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/laratify/laratify-octobercms-octaskin/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/laratify/laratify-octobercms-octaskin/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/rainlab/vanilla-theme/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/rainlab/vanilla-theme/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/responsiv/flat-theme/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/responsiv/flat-theme/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/jtherczeg/multi-theme/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/jtherczeg/multi-theme/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/ChadStrat/travu-theme/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/ChadStrat/travu-theme/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/jtherczeg/corlate-theme/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/jtherczeg/corlate-theme/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/jacoweb/freelanceTheme/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/jacoweb/freelanceTheme/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
-wget https://github.com/jacoweb/AgencyTheme/archive/master.zip
-unzip master.zip
+/usr/bin/wget https://github.com/jacoweb/AgencyTheme/archive/master.zip
+/usr/bin/unzip master.zip
 /bin/rm -f master.zip
 ## Setup links
 /opt/verb/serfs/setvapplinkon ${CVAPPNAME}; wait

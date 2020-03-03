@@ -41,7 +41,7 @@ fi
 
 # wget
 if [ $INKGET_METHOD = "USE_WGET" ]; then
-wget https://${INKGET_REPO}/repo/${APPNAME}.vtxz --no-check-certificate
+/usr/bin/wget https://${INKGET_REPO}/repo/${APPNAME}.vtxz --no-check-certificate
 fi
 
 # inker

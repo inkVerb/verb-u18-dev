@@ -23,7 +23,6 @@ if [ -e "${FIL}.tar" ]; then
 exit 7; fi
 
 /bin/mv ${FIL}.vtxz ${FIL}.tar.xz
-xz -d ${FIL}.tar.xz
-tar -xf ${FIL}.tar
+/usr/bin/xz -d ${FIL}.tar.xz
+/bin/tar -xf ${FIL}.tar
 /bin/rm ${FIL}.tar
-
