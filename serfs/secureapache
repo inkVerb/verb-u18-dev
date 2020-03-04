@@ -19,6 +19,7 @@ else
   security2_module="no"
   SecRuleEngine="no"
   IncludeOptional="no"
+  $mod_evasive="no"
 fi
 
 if [ $SEC_APACHE = "done" ]; then
@@ -155,12 +156,19 @@ fi
 
 fi
 
-
-# mod_evasive Fork installation (https://github.com/shivaas/mod_evasive)
-## Consulted:
-## https://www.linode.com/docs/web-servers/apache-tips-and-tricks/modevasive-on-apache/
-
-
+# mod_evasive
+## Fork installation (https://github.com/shivaas/mod_evasive)
+if [ $mod_evasive = "done" ]; then
+  /bin/echo "Already done."
+else
+  /usr/bin/apt-get install -y apache2-dev
+  /usr/bin/wget https://raw.githubusercontent.com/inkVerb/mod_evasive/master/mod_evasive24.c
+  /usr/bin/apxs -i -a -c mod_evasive24.c
+  wait
+  /bin/systemctl restart apache2
+  /bin/rm -f mod_evasive24.c
+  /bin/echo "mod_evasive=\"done\"" >> /opt/verb/conf/secapache
+fi
 
 # Finish
 ## Note in the settiongs
