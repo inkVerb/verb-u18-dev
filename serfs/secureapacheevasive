@@ -2,14 +2,14 @@
 #inkVerbSerf! verb.ink
 
 # This installs mod_evasive (forked) for Apache security
-## Prerequesite: secureapache
+## Prerequesite: secureapachemodsec
 #DEV currently this is broken:
 ##Both currently removed:
   #- /etc/apache2/mods-enabled/security2.conf ... was a real file, not at mods-available
   #- /etc/apache2/mods-enabled/security2.load
 
 # How to use:
-## ./secureevasive
+## ./secureapacheevasive
 
 
 # Check if done
@@ -21,7 +21,7 @@ if [ $SEC_APACHE != "done" ]; then
   exit 0
 fi
 
-else 
+else
   /bin/echo "secureapache not installed. Do that first"
   exit 0
 fi
@@ -39,6 +39,7 @@ if [ $mod_evasive = "done" ]; then
   /bin/echo "Already done."
 else
   /usr/bin/apt-get install -y apache2-dev
+  cd ~
   /usr/bin/wget https://raw.githubusercontent.com/inkVerb/mod_evasive/master/mod_evasive24.c
   /usr/bin/apxs -i -a -c mod_evasive24.c
   wait

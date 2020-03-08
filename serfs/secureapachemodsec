@@ -8,7 +8,7 @@
   #- /etc/apache2/mods-enabled/security2.load
 
 # How to use:
-## ./secureapache
+## ./secureapachemodsec
 
 
 # Check if done
