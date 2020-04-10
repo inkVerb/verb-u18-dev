@@ -24,17 +24,17 @@ if [ "${INKVPNINSTALLED}" != "NOT_YET" ]; then
 /bin/mkdir -p /opt/openvpn
 cd /opt/openvpn
 make-cadir certificates
-/bin/ln -sfn /opt/openvpn/certificates /opt/verb/conf/inkvpn/
-cd /opt/verb/conf/inkvpn/certificates
+#/bin/ln -sfn /opt/openvpn/certificates /opt/verb/conf/inkvpn/ # Before this was commented, all other instances of '/opt/openvpn/certificates' was '/opt/verb/conf/inkvpn/certificates', changed due to security concerns of permissions
+cd /opt/openvpn/certificates
 
 # Locale & config settings
-/bin/sed -i "s/export KEY_CONFIG=/#export KEY_CONFIG=/" /opt/verb/conf/inkvpn/certificates/vars
-/bin/sed -i "s/export KEY_COUNTRY=/#export KEY_COUNTRY=/" /opt/verb/conf/inkvpn/certificates/vars
-/bin/sed -i "s/export KEY_PROVINCE=/#export KEY_PROVINCE=/" /opt/verb/conf/inkvpn/certificates/vars
-/bin/sed -i "s/export KEY_CITY=/#export KEY_CITY=/" /opt/verb/conf/inkvpn/certificates/vars
-/bin/sed -i "s/export KEY_ORG=/#export KEY_ORG=/" /opt/verb/conf/inkvpn/certificates/vars
-/bin/sed -i "s/export KEY_EMAIL=/#export KEY_EMAIL=/" /opt/verb/conf/inkvpn/certificates/vars
-/bin/sed -i "s/export KEY_OU=/#export KEY_OU=/" /opt/verb/conf/inkvpn/certificates/vars
+/bin/sed -i "s/export KEY_CONFIG=/#export KEY_CONFIG=/" /opt/openvpn/certificates/vars
+/bin/sed -i "s/export KEY_COUNTRY=/#export KEY_COUNTRY=/" /opt/openvpn/certificates/vars
+/bin/sed -i "s/export KEY_PROVINCE=/#export KEY_PROVINCE=/" /opt/openvpn/certificates/vars
+/bin/sed -i "s/export KEY_CITY=/#export KEY_CITY=/" /opt/openvpn/certificates/vars
+/bin/sed -i "s/export KEY_ORG=/#export KEY_ORG=/" /opt/openvpn/certificates/vars
+/bin/sed -i "s/export KEY_EMAIL=/#export KEY_EMAIL=/" /opt/openvpn/certificates/vars
+/bin/sed -i "s/export KEY_OU=/#export KEY_OU=/" /opt/openvpn/certificates/vars
 /bin/echo "
 # Added by inkVerb #
 export KEY_CONFIG=\"\$EASY_RSA/openssl-1.0.0.cnf\"
@@ -45,7 +45,27 @@ export KEY_ORG=\"${INKVPNORG}\"
 export KEY_EMAIL=\"${INKVPNCLIENTEMAIL}\"
 export KEY_OU=\"${INKVPNOU}\"
 ## Added by inkVerb ##
-" >> /opt/verb/conf/inkvpn/certificates/vars
+" >> /opt/openvpn/certificates/vars
+
+# OpenSSL conf
+echo '
+[server_cert]
+basicConstraints = CA:FALSE
+nsCertType = server
+nsComment = "OpenSSL Generated Server Certificate"
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer:always
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+
+[client_cert]
+basicConstraints = CA:FALSE
+nsCertType = client, email
+nsComment = "OpenSSL Generated Client Certificate"
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer
+keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage = clientAuth, emailProtection' >> $EASY_RSA/openssl-1.0.0.cnf
 
 # OpenVPN Settings
 gzip -d -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz | tee /etc/openvpn/server.conf > /dev/null

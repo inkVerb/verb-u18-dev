@@ -30,8 +30,8 @@ fi
 /usr/sbin/ufw allow from any to any port ${INKVPNPORT} proto udp
 /usr/sbin/ufw allow ${INKVPNPORT}
 ## If a client file already exists
-if [ -f "/opt/verb/conf/inkvpn/certificates/clients/client.ovpn" ]; then
-/bin/sed -i "s/^remote ${hostURI}.*/remote ${hostURI} ${INKVPNPORT}/" /opt/verb/conf/inkvpn/certificates/clients/client.ovpn
+if [ -f "/opt/openvpn/certificates/clients/client.ovpn" ]; then
+/bin/sed -i "s/^remote ${hostURI}.*/remote ${hostURI} ${INKVPNPORT}/" /opt/openvpn/certificates/clients/client.ovpn
 fi
 ## Restart the OpenVPNserver if already installed
 if [ "${INKVPNINSTALLED}" = "INSTALLED_OPENVPN" ]; then

@@ -13,11 +13,11 @@
 . /opt/verb/conf/inkvpn/inkvpnstatus
 
 # Check if the directory exists
-if [ ! -d "/opt/verb/conf/inkvpn/certificates" ]; then
+if [ ! -d "/opt/openvpn/certificates" ]; then
 /bin/echo "The OpenVPN \"certificates\" directory does not exist, something's wrong. Bye."; exit 0; fi
 
 # Remove keys and start everything over
-cd /opt/verb/conf/inkvpn/certificates
+cd /opt/openvpn/certificates
 source vars
 ./clean-all && ./build-ca --batch
 ./build-key-server --batch server
