@@ -19,6 +19,9 @@ cDIR="$(/usr/bin/pwgen -s -1 128)"
 # Link it to the Serve folder
 /bin/ln -sfn /opt/openvpn/certificates/clients/client.ovpn /var/www/html/ink.serve/${SERVEDIR}/${cDIR}/${SITENAME}-${SITETLD}-client.ovpn
 
+# Permissions
+/bin/chown -R www-data:www-data /var/www/html/ink.serve/${SERVEDIR}
+
 # Finish
 /bin/echo "The client OVPN profile is ready for download.
 Get it here: https://${serveURI}/${SERVEDIR}/${cDIR}/${SITENAME}-${SITETLD}-client.ovpn
