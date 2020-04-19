@@ -55,7 +55,7 @@ if [ ! -d /etc/inkcert/live/${DOMAIN} ]; then
 
 ## Remove the inkCert cert lines
 /bin/sed -i '/#INKVERB-INKCERT=DONE_IC/,/#INKVERB-INKCERT-stop/{/#INKVERB-INKCERT=DONE_IC/!{/#INKVERB-INKCERT-stop/!d}}' /etc/apache2/sites-available/${DOMAIN}.conf
-/bin/sed -i 's/#INKVERB-INKCERT=DONE_IC/#INKVERB-INKCERT=NO_REMOVED/' /etc/apache2/sites-available/${DOMAIN}.conf
+/bin/sed -i 's/#INKVERB-INKCERT=DONE_IC/#INKVERB-INKCERT=INK_NO_REMOVED/' /etc/apache2/sites-available/${DOMAIN}.conf
 /bin/sed -i '/#INKVERB-INKCERT-stop/d' /etc/apache2/sites-available/${DOMAIN}.conf
 /usr/sbin/apache2ctl graceful
 
