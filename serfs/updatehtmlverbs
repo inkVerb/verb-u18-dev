@@ -126,9 +126,6 @@ if [ ! -e kiwi.webrtc ]; then cp -r 0ne kiwi.webrtc; fi
 if [ ! -e cash ]; then cp -r 0ne cash
 /bin/echo "<?php header(\"Location: http://${inkURI}\"); die(); ?>" > /var/www/html/cash/index-cash.php
 fi
-if [ ! -e pink ]; then cp -r 0ne pink
-/bin/echo "<?php header(\"Location: http://${inkURI}\"); die(); ?>" > /var/www/html/pink/index-pink.php
-fi
 if [ ! -e red ]; then cp -r 0ne red
 /bin/echo "<?php header(\"Location: http://act.${redURI}\"); die(); ?>" > /var/www/html/red/index-act.php
 /bin/echo "<?php header(\"Location: http://crm.${redURI}\"); die(); ?>" > /var/www/html/red/index-crm.php
@@ -183,10 +180,6 @@ if [ ! -e cash.cash ]; then
 /bin/mkdir cash.cash
 /bin/echo "<?php header(\"HTTP/1.1 301 Moved Permanently\"); header(\"Location: http://${cashURI}\"); die(); ?>" > /var/www/html/cash.cash/index.php
 fi
-if [ ! -e pink.pink ]; then
-/bin/mkdir pink.pink
-/bin/echo "<?php header(\"HTTP/1.1 301 Moved Permanently\"); header(\"Location: http://${pinkURI}\"); die(); ?>" > /var/www/html/pink.pink/index.php
-fi
 if [ ! -e red.red ]; then
 /bin/mkdir red.red
 /bin/echo "<?php header(\"HTTP/1.1 301 Moved Permanently\"); header(\"Location: http://${redURI}\"); die(); ?>" > /var/www/html/red.red/index.php
@@ -211,7 +204,6 @@ fi
 /bin/chmod -R 750 vip*
 /bin/chmod -R 750 kiwi*
 /bin/chmod -R 750 cash*
-/bin/chmod -R 750 pink*
 /bin/chmod -R 750 red*
 /bin/chmod -R 750 rocks*
 
