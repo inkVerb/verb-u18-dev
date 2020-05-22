@@ -18,6 +18,9 @@ SECURE_AUTH_SALT="$(/usr/bin/pwgen -s -1 27)"
 LOGGED_IN_SALT="$(/usr/bin/pwgen -s -1 27)"
 NONCE_SALT="$(/usr/bin/pwgen -s -1 27)"
 
+# Writable Permissions
+/bin/chmod -R 644 wp-config.php
+
 # Insert the random pwgen strings
 cd /var/www/html/${DOMAIN}/
 /bin/sed -i "s/define( 'AUTH_KEY',         .*/define( 'AUTH_KEY',         '${AUTH_KEY}' );/g" wp-config.php
@@ -29,8 +32,8 @@ cd /var/www/html/${DOMAIN}/
 /bin/sed -i "s/define( 'LOGGED_IN_SALT',   .*/define( 'LOGGED_IN_SALT',   '${LOGGED_IN_SALT}' );/g" wp-config.php
 /bin/sed -i "s/define( 'NONCE_SALT',       .*/define( 'NONCE_SALT',       '${NONCE_SALT}' );/g" wp-config.php
 
-# Permissions
-/bin/chmod -R 644 wp-config.php
+# Reset all permissions
+/bin/chmod -R 440 wp-config.php
+/bin/chown -R www-data:www-data /var/www/html/${DOMAIN}/
 
 /bin/echo "${DOMAIN} now has secure strings and permissions."
-

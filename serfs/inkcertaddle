@@ -95,7 +95,7 @@ if [ "${FIRSTINKCERTADDLE}" = "NOT_YET" ]; then
 /bin/sed -i "s/FIRSTINKCERTADDLE=\"NOT_YET\"/FIRSTINKCERTADDLE=\"DONE\"/g" /opt/verb/conf/inkcert/inkcertstatus
 ## Create the cron job
 ### Add inkCertLE's auto updater to the cron
-/bin/echo '3 3 * * * root /opt/verb/donjon/inkcertle-renew-all.sh' > /etc/cron.d/inkcertrenewlecron
+/bin/echo '2 2 * * * root /opt/verb/donjon/inkcertle-renew-all.sh' > /etc/cron.d/inkcertrenewlecron
 /bin/chmod 0644 /etc/cron.d/inkcertrenewlecron
 fi
 
