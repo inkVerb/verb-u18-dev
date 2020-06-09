@@ -132,15 +132,12 @@ hostURI=\"${HNAME}.${SERVERTLD}.${DMODBASE}\"
 serveURI=\"serve.${SERVERTLD}.${DMODBASE}\"
 emailTLDURI=\"${SVMAILTLD}.${DMODBASE}\"
 emailURI=\"email.${DMODBASE}\"
-cityURI=\"city.${DMODBASE}\"
 oneURI=\"one.${DMODBASE}\"
 inkURI=\"ink.${DMODBASE}\"
 blueURI=\"blue.${DMODBASE}\"
 vipURI=\"vip.${DMODBASE}\"
 kiwiURI=\"kiwi.${DMODBASE}\"
-cashURI=\"cash.${DMODBASE}\"
 redURI=\"red.${DMODBASE}\"
-rocksURI=\"rocks.${DMODBASE}\"
 " > /opt/verb/conf/siteurilist
 ## Normal verb domains
 else
@@ -153,15 +150,12 @@ hostURI=\"${HNAME}.${VNAME}.verb.${SERVERTLD}\"
 serveURI=\"serve.${VNAME}.verb.${SERVERTLD}\"
 emailTLDURI=\"${VNAME}.verb.${SVMAILTLD}\"
 emailURI=\"${VNAME}.verb.email\"
-cityURI=\"${VNAME}.verb.city\"
 oneURI=\"${VNAME}.verb.one\"
 inkURI=\"${VNAME}.verb.ink\"
 blueURI=\"${VNAME}.verb.blue\"
 vipURI=\"${VNAME}.verb.vip\"
 kiwiURI=\"${VNAME}.verb.kiwi\"
-cashURI=\"${VNAME}.verb.cash\"
 redURI=\"${VNAME}.verb.red\"
-rocksURI=\"${VNAME}.verb.rocks\"
 " > /opt/verb/conf/siteurilist
 fi
 . /opt/verb/conf/siteurilist
@@ -207,76 +201,58 @@ phpNum=$(/opt/verb/serfs/phpver)
 ## Replace
 /bin/cp /opt/verb/inst/root-config/etc/apache2/sites-available/* /etc/apache2/sites-available/
 /bin/sed -i "s/emailURI286/${emailURI}/g" /etc/apache2/sites-available/*.conf
-/bin/sed -i "s/cityURI286/${cityURI}/g" /etc/apache2/sites-available/*.conf
 /bin/sed -i "s/oneURI286/${oneURI}/g" /etc/apache2/sites-available/*.conf
 /bin/sed -i "s/inkURI286/${inkURI}/g" /etc/apache2/sites-available/*.conf
 /bin/sed -i "s/blueURI286/${blueURI}/g" /etc/apache2/sites-available/*.conf
 /bin/sed -i "s/vipURI286/${vipURI}/g" /etc/apache2/sites-available/*.conf
 /bin/sed -i "s/kiwiURI286/${kiwiURI}/g" /etc/apache2/sites-available/*.conf
-/bin/sed -i "s/cashURI286/${cashURI}/g" /etc/apache2/sites-available/*.conf
 /bin/sed -i "s/redURI286/${redURI}/g" /etc/apache2/sites-available/*.conf
-/bin/sed -i "s/rocksURI286/${rocksURI}/g" /etc/apache2/sites-available/*.conf
 ## Rename
 /usr/bin/rename "s/emailURI286/${emailURI}/" /etc/apache2/sites-available/*.conf
-/usr/bin/rename "s/cityURI286/${cityURI}/" /etc/apache2/sites-available/*.conf
 /usr/bin/rename "s/oneURI286/${oneURI}/" /etc/apache2/sites-available/*.conf
 /usr/bin/rename "s/inkURI286/${inkURI}/" /etc/apache2/sites-available/*.conf
 /usr/bin/rename "s/blueURI286/${blueURI}/" /etc/apache2/sites-available/*.conf
 /usr/bin/rename "s/vipURI286/${vipURI}/" /etc/apache2/sites-available/*.conf
 /usr/bin/rename "s/kiwiURI286/${kiwiURI}/" /etc/apache2/sites-available/*.conf
-/usr/bin/rename "s/cashURI286/${cashURI}/" /etc/apache2/sites-available/*.conf
 /usr/bin/rename "s/redURI286/${redURI}/" /etc/apache2/sites-available/*.conf
-/usr/bin/rename "s/rocksURI286/${rocksURI}/" /etc/apache2/sites-available/*.conf
 
 # New site-files
 ## Replace
 /bin/sed -i "s/emailURI286/${emailURI}/g" /opt/verb/conf/site-files/conf/*
-/bin/sed -i "s/cityURI286/${cityURI}/g" /opt/verb/conf/site-files/conf/*
 /bin/sed -i "s/oneURI286/${oneURI}/g" /opt/verb/conf/site-files/conf/*
 /bin/sed -i "s/inkURI286/${inkURI}/g" /opt/verb/conf/site-files/conf/*
 /bin/sed -i "s/blueURI286/${blueURI}/g" /opt/verb/conf/site-files/conf/*
 /bin/sed -i "s/vipURI286/${vipURI}/g" /opt/verb/conf/site-files/conf/*
 /bin/sed -i "s/kiwiURI286/${kiwiURI}/g" /opt/verb/conf/site-files/conf/*
-/bin/sed -i "s/cashURI286/${cashURI}/g" /opt/verb/conf/site-files/conf/*
 /bin/sed -i "s/redURI286/${redURI}/g" /opt/verb/conf/site-files/conf/*
-/bin/sed -i "s/rocksURI286/${rocksURI}/g" /opt/verb/conf/site-files/conf/*
 ## Rename
 /usr/bin/rename "s/emailURI286/${emailURI}/" /opt/verb/conf/site-files/conf/*
-/usr/bin/rename "s/cityURI286/${cityURI}/" /opt/verb/conf/site-files/conf/*
 /usr/bin/rename "s/oneURI286/${oneURI}/" /opt/verb/conf/site-files/conf/*
 /usr/bin/rename "s/inkURI286/${inkURI}/" /opt/verb/conf/site-files/conf/*
 /usr/bin/rename "s/blueURI286/${blueURI}/" /opt/verb/conf/site-files/conf/*
 /usr/bin/rename "s/vipURI286/${vipURI}/" /opt/verb/conf/site-files/conf/*
 /usr/bin/rename "s/kiwiURI286/${kiwiURI}/" /opt/verb/conf/site-files/conf/*
-/usr/bin/rename "s/cashURI286/${cashURI}/" /opt/verb/conf/site-files/conf/*
 /usr/bin/rename "s/redURI286/${redURI}/" /opt/verb/conf/site-files/conf/*
-/usr/bin/rename "s/rocksURI286/${rocksURI}/" /opt/verb/conf/site-files/conf/*
 
 # inkCert ini and cron files
 ## Replace
 /bin/sed -i "s/sslemail286/${SSLEMAIL}/g" /opt/verb/conf/inkcert/cli-ini/*
 /bin/sed -i "s/nameURI286/${nameURI}/g" /opt/verb/conf/inkcert/verber-openssl.cnf
 /bin/sed -i "s/emailURI286/${emailURI}/g" /opt/verb/conf/inkcert/cli-ini/*
-/bin/sed -i "s/cityURI286/${cityURI}/g" /opt/verb/conf/inkcert/cli-ini/*
 /bin/sed -i "s/oneURI286/${oneURI}/g" /opt/verb/conf/inkcert/cli-ini/*
 /bin/sed -i "s/inkURI286/${inkURI}/g" /opt/verb/conf/inkcert/cli-ini/*
 /bin/sed -i "s/blueURI286/${blueURI}/g" /opt/verb/conf/inkcert/cli-ini/*
 /bin/sed -i "s/vipURI286/${vipURI}/g" /opt/verb/conf/inkcert/cli-ini/*
 /bin/sed -i "s/kiwiURI286/${kiwiURI}/g" /opt/verb/conf/inkcert/cli-ini/*
-/bin/sed -i "s/cashURI286/${cashURI}/g" /opt/verb/conf/inkcert/cli-ini/*
 /bin/sed -i "s/redURI286/${redURI}/g" /opt/verb/conf/inkcert/cli-ini/*
-/bin/sed -i "s/rocksURI286/${rocksURI}/g" //opt/verb/conf/inkcert/cli-ini/*
 ## Rename
 /usr/bin/rename "s/emailURI286/${emailURI}/" /opt/verb/conf/inkcert/cli-ini/*
-/usr/bin/rename "s/cityURI286/${cityURI}/" /opt/verb/conf/inkcert/cli-ini/*
 /usr/bin/rename "s/oneURI286/${oneURI}/" /opt/verb/conf/inkcert/cli-ini/*
 /usr/bin/rename "s/inkURI286/${inkURI}/" /opt/verb/conf/inkcert/cli-ini/*
 /usr/bin/rename "s/blueURI286/${blueURI}/" /opt/verb/conf/inkcert/cli-ini/*
 /usr/bin/rename "s/vipURI286/${vipURI}/" /opt/verb/conf/inkcert/cli-ini/*
 /usr/bin/rename "s/kiwiURI286/${kiwiURI}/" /opt/verb/conf/inkcert/cli-ini/*
-/usr/bin/rename "s/cashURI286/${cashURI}/" /opt/verb/conf/inkcert/cli-ini/*
 /usr/bin/rename "s/redURI286/${redURI}/" /opt/verb/conf/inkcert/cli-ini/*
-/usr/bin/rename "s/rocksURI286/${rocksURI}/" /opt/verb/conf/inkcert/cli-ini/*
 
 ## Serve URI
 /opt/verb/serfs/setserve
@@ -288,9 +264,6 @@ phpNum=$(/opt/verb/serfs/phpver)
 . /opt/verb/conf/sitetldstatus
 if [ ${VERBemail}=true ]; then
 /usr/sbin/a2ensite ${emailURI} email.${emailURI}
-fi
-if [ ${VERBcity}=true ]; then
-/usr/sbin/a2ensite ${cityURI} city.${cityURI} center.${cityURI} console.${cityURI} ctr.${cityURI} cnl.${cityURI}
 fi
 if [ ${VERBone}=true ]; then
 /usr/sbin/a2ensite ${oneURI} one.${oneURI}
@@ -307,16 +280,10 @@ fi
 if [ ${VERBkiwi}=true ]; then
 /usr/sbin/a2ensite ${kiwiURI} kiwi.${kiwiURI} ampache.${kiwiURI} art.${kiwiURI} ejabberd.${kiwiURI} gallery.${kiwiURI} media.${kiwiURI} podcast.${kiwiURI} prosody.${kiwiURI} studio.${kiwiURI} voip.${kiwiURI} webrtc.${kiwiURI}
 fi
-if [ ${VERBcash}=true ]; then
-/usr/sbin/a2ensite ${cashURI} cash.${cashURI}
-fi
 if [ ${VERBpink}=true ]; then
 fi
 if [ ${VERBred}=true ]; then
 /usr/sbin/a2ensite ${redURI} red.${redURI} act.${redURI} crm.${redURI} erp.${redURI} hrm.${redURI} odoo.${redURI} owa.${redURI} scm.${redURI}
-fi
-if [ ${VERBrocks}=true ]; then
-/usr/sbin/a2ensite ${rocksURI} rocks.${rocksURI}
 fi
 /bin/systemctl reload apache2
 
@@ -395,48 +362,36 @@ ${hostURI}.	IN  AAAA	hostipv6286
 " >> /opt/verb/conf/inkdns/zones/db.${SITETLD}
 ## Populate the Verber domains
 /bin/sed -i "s/hostdomain286/${emailURI}/g" /opt/verb/conf/inkdns/zones/db.email
-/bin/sed -i "s/hostdomain286/${cityURI}/g" /opt/verb/conf/inkdns/zones/db.city
 /bin/sed -i "s/hostdomain286/${oneURI}/g" /opt/verb/conf/inkdns/zones/db.one
 /bin/sed -i "s/hostdomain286/${inkURI}/g" /opt/verb/conf/inkdns/zones/db.ink
 /bin/sed -i "s/hostdomain286/${blueURI}/g" /opt/verb/conf/inkdns/zones/db.blue
 /bin/sed -i "s/hostdomain286/${vipURI}/g" /opt/verb/conf/inkdns/zones/db.vip
 /bin/sed -i "s/hostdomain286/${kiwiURI}/g" /opt/verb/conf/inkdns/zones/db.kiwi
-/bin/sed -i "s/hostdomain286/${cashURI}/g" /opt/verb/conf/inkdns/zones/db.cash
 /bin/sed -i "s/hostdomain286/${redURI}/g" /opt/verb/conf/inkdns/zones/db.red
-/bin/sed -i "s/hostdomain286/${rocksURI}/g" /opt/verb/conf/inkdns/zones/db.rocks
 /bin/sed -i "s/hostdomain286/${emailURI}/g" /opt/verb/conf/inkdns/zones/nv.email
-/bin/sed -i "s/hostdomain286/${cityURI}/g" /opt/verb/conf/inkdns/zones/nv.city
 /bin/sed -i "s/hostdomain286/${oneURI}/g" /opt/verb/conf/inkdns/zones/nv.one
 /bin/sed -i "s/hostdomain286/${inkURI}/g" /opt/verb/conf/inkdns/zones/nv.ink
 /bin/sed -i "s/hostdomain286/${blueURI}/g" /opt/verb/conf/inkdns/zones/nv.blue
 /bin/sed -i "s/hostdomain286/${vipURI}/g" /opt/verb/conf/inkdns/zones/nv.vip
 /bin/sed -i "s/hostdomain286/${kiwiURI}/g" /opt/verb/conf/inkdns/zones/nv.kiwi
-/bin/sed -i "s/hostdomain286/${cashURI}/g" /opt/verb/conf/inkdns/zones/nv.cash
 /bin/sed -i "s/hostdomain286/${redURI}/g" /opt/verb/conf/inkdns/zones/nv.red
-/bin/sed -i "s/hostdomain286/${rocksURI}/g" /opt/verb/conf/inkdns/zones/nv.rocks
 ## Set host FQDN
 /bin/sed -i "s/;; End Root Site Defaults/${hostURI}\.\t\tIN  A\t\t${SERVERIPV4}\n${hostURI}\.\t\tIN  AAAA\t${SERVERIPV6}\n;; End Root Site Defaults/" /opt/verb/conf/inkdns/zones/db.${SERVERTLD}
 ## Set the URI names
 /bin/mv /opt/verb/conf/inkdns/zones/db.email /opt/verb/conf/inkdns/zones/db.${emailURI}
-/bin/mv /opt/verb/conf/inkdns/zones/db.city /opt/verb/conf/inkdns/zones/db.${cityURI}
 /bin/mv /opt/verb/conf/inkdns/zones/db.one /opt/verb/conf/inkdns/zones/db.${oneURI}
 /bin/mv /opt/verb/conf/inkdns/zones/db.ink /opt/verb/conf/inkdns/zones/db.${inkURI}
 /bin/mv /opt/verb/conf/inkdns/zones/db.blue /opt/verb/conf/inkdns/zones/db.${blueURI}
 /bin/mv /opt/verb/conf/inkdns/zones/db.vip /opt/verb/conf/inkdns/zones/db.${vipURI}
 /bin/mv /opt/verb/conf/inkdns/zones/db.kiwi /opt/verb/conf/inkdns/zones/db.${kiwiURI}
-/bin/mv /opt/verb/conf/inkdns/zones/db.cash /opt/verb/conf/inkdns/zones/db.${cashURI}
 /bin/mv /opt/verb/conf/inkdns/zones/db.red /opt/verb/conf/inkdns/zones/db.${redURI}
-/bin/mv /opt/verb/conf/inkdns/zones/db.rocks /opt/verb/conf/inkdns/zones/db.${rocksURI}
 /bin/mv /opt/verb/conf/inkdns/zones/nv.email /opt/verb/conf/inkdns/zones/nv.${emailURI}
-/bin/mv /opt/verb/conf/inkdns/zones/nv.city /opt/verb/conf/inkdns/zones/nv.${cityURI}
 /bin/mv /opt/verb/conf/inkdns/zones/nv.one /opt/verb/conf/inkdns/zones/nv.${oneURI}
 /bin/mv /opt/verb/conf/inkdns/zones/nv.ink /opt/verb/conf/inkdns/zones/nv.${inkURI}
 /bin/mv /opt/verb/conf/inkdns/zones/nv.blue /opt/verb/conf/inkdns/zones/nv.${blueURI}
 /bin/mv /opt/verb/conf/inkdns/zones/nv.vip /opt/verb/conf/inkdns/zones/nv.${vipURI}
 /bin/mv /opt/verb/conf/inkdns/zones/nv.kiwi /opt/verb/conf/inkdns/zones/nv.${kiwiURI}
-/bin/mv /opt/verb/conf/inkdns/zones/nv.cash /opt/verb/conf/inkdns/zones/nv.${cashURI}
 /bin/mv /opt/verb/conf/inkdns/zones/nv.red /opt/verb/conf/inkdns/zones/nv.${redURI}
-/bin/mv /opt/verb/conf/inkdns/zones/nv.rocks /opt/verb/conf/inkdns/zones/nv.${rocksURI}
 ## Serial Nos
 cd /opt/verb/conf/inkdns/zones
 for inkZoneDB in db.*; do

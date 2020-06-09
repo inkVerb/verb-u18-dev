@@ -39,11 +39,6 @@ find -L . -name . -o -type d -prune -o -type l -exec rm {} +
 # Verb sites
 if [ ! -e ink ]; then cp -r 0sitedefaultInProgress ink; fi
 if [ ! -e email ]; then cp -r 0ne email; fi
-if [ ! -e city ]; then cp -r 0ne city; fi
-if [ ! -e city.center ]; then cp -r 0ne city.center; fi
-if [ ! -e city.console ]; then cp -r 0ne city.console; fi
-if [ ! -e city.ctr ]; then /bin/mkdir -p city.ctr && /bin/echo "<?php header(\"Location: http://center.${cityURI}\"); die(); ?>" > /var/www/html/city.ctr/index.php; fi
-if [ ! -e city.cnl ]; then /bin/mkdir -p city.cnl && /bin/echo "<?php header(\"Location: http://console.${cityURI}\"); die(); ?>" > /var/www/html/city.cnl/index.php; fi
 if [ ! -e one ]; then cp -r 0ne one
 /bin/echo "<?php header(\"Location: http://${inkURI}\"); die(); ?>" > /var/www/html/one/index-one.php
 /bin/echo "<?php header(\"Location: http://newonesub.${oneURI}\"); die(); ?>" > /var/www/html/one/index-newonesub.php
@@ -140,18 +135,12 @@ if [ ! -e red.hrm ]; then cp -r 0ne red.hrm; fi
 if [ ! -e red.odoo ]; then cp -r 0ne red.odoo; fi
 if [ ! -e red.owa ]; then cp -r 0ne red.owa; fi
 if [ ! -e red.scm ]; then cp -r 0ne red.scm; fi
-if [ ! -e rocks ]; then cp -r 0ne rocks
-/bin/echo "<?php header(\"Location: http://${inkURI}\"); die(); ?>" > /var/www/html/rocks/index-rocks.php
-fi
+
 
 # Verb point defaults
 if [ ! -e email.email ]; then
 /bin/mkdir email.email
 /bin/echo "<?php header(\"HTTP/1.1 301 Moved Permanently\"); header(\"Location: http://${emailURI}\"); die(); ?>" > /var/www/html/email.email/index.php
-fi
-if [ ! -e city.city ]; then
-/bin/mkdir city.city
-/bin/echo "<?php header(\"HTTP/1.1 301 Moved Permanently\"); header(\"Location: http://${cityURI}\"); die(); ?>" > /var/www/html/city.city/index.php
 fi
 if [ ! -e one.one ]; then
 /bin/mkdir one.one
@@ -177,10 +166,6 @@ if [ ! -e red.red ]; then
 /bin/mkdir red.red
 /bin/echo "<?php header(\"HTTP/1.1 301 Moved Permanently\"); header(\"Location: http://${redURI}\"); die(); ?>" > /var/www/html/red.red/index.php
 fi
-if [ ! -e rocks.rocks ]; then
-/bin/mkdir rocks.rocks
-/bin/echo "<?php header(\"HTTP/1.1 301 Moved Permanently\"); header(\"Location: http://${rocksURI}\"); die(); ?>" > /var/www/html/rocks.rocks/index.php
-fi
 
 # Serve URI
 /bin/rm -rf /var/www/html/${SITESERVE}.serve
@@ -190,14 +175,12 @@ fi
 # Own
 /bin/chown -R www-data:www-data /var/www/html
 /bin/chmod -R 750 email*
-/bin/chmod -R 750 city*
 /bin/chmod -R 750 one*
 /bin/chmod -R 750 ink*
 /bin/chmod -R 750 blue*
 /bin/chmod -R 750 vip*
 /bin/chmod -R 750 kiwi*
 /bin/chmod -R 750 red*
-/bin/chmod -R 750 rocks*
 
 # Finish
 /bin/echo "Done. Except for any installed apps, Verber html folders have been set to original setup state."

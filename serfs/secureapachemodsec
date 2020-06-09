@@ -66,6 +66,10 @@ fi
 
 fi
 
+## Put this in the right place
+/bin/mv /etc/apache2/mods-enabled/security2.conf /etc/apache2/mods-available/security2.conf
+/bin/ln -sfn /etc/apache2/mods-available/security2.conf /etc/apache2/mods-enabled/security2.conf
+
 # mod_sec rules
 if [ $IncludeOptional = "done" ]; then
   /bin/echo "Already done."

@@ -50,4 +50,4 @@ fi
 
 # Finish
 ## Message
-/bin/echo "Secure Apache done."
+/bin/echo "Mod Evasive Apache done."

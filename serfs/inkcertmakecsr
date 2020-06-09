@@ -44,7 +44,7 @@ INFPROFILE=$3
 PASSPHRASE=$(/usr/bin/pwgen -s -1 105)
 
 # Verify that the domain is installed
-if [ ! -f /opt/verb/conf/inkcert/csr-inf/siteinkcert-${DOMAIN} ]; then
+if [ ! -f /opt/verb/conf/inkcert/cli-ini/siteinkcert-${DOMAIN} ]; then
 /bin/echo "Sorry, Bucko. ${DOMAIN} is not installed yet.
 
 Do that first, then get back to me.
