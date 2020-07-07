@@ -25,8 +25,14 @@ fi
 
 # Install
 ## Letsencrypt - Currently, inkCert is largely powered by Letsencrypt, so it uses links. This will eventually change, but file paths won't.
-/usr/bin/add-apt-repository -y ppa:certbot/certbot
-/usr/bin/apt-get install -y python-certbot-apache
+
+#/usr/bin/add-apt-repository -y ppa:certbot/certbot ## broken
+#/usr/bin/apt-get install -y python-certbot-apache ## broken
+
+apt-get install software-properties-common # may be redundant
+add-apt-repository universe # may be redundant
+add-apt-repository ppa:certbot/certbot
+apt-get install certbot python3-certbot-apache
 
 ###DEV One or both of these is creating an error: pkg_resources.VersionConflict: (acme 0.31.0 (/usr/lib/python3/dist-packages), Requirement.parse('acme>=0.40.0'))
 ### https://www.digitalocean.com/community/questions/new-error-this-week-certbot-dns-digitalocean-says-acme-0-31-0-usr-lib-python3-dist-packages-requirement-parse-acme-0-40-0

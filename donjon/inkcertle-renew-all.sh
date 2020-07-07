@@ -11,7 +11,7 @@
 /bin/systemctl stop apache2
 
 # Renew LE
-/usr/bin/certbot renew --dry-run
+/usr/local/bin/certbot renew --dry-run
 
 # Log
 if [ $? -ne 0 ]
