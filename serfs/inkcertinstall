@@ -41,8 +41,8 @@ apt-get install certbot python3-certbot-apache
 #/usr/bin/apt-get install -y python-pip
 #/usr/bin/pip install certbot-dns-digitalocean
 ## May be redundant ::
-/usr/bin/apt-get install -y python3-pip
-/usr/bin/pip3 install certbot-dns-digitalocean
+#/usr/bin/apt-get install -y python3-pip
+#/usr/bin/pip3 install certbot-dns-digitalocean
 ###DEV
 
 ## Certbot for DigitalOcean
