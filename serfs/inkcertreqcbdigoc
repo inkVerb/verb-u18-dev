@@ -185,7 +185,7 @@ fi
 ##NOTE make the system wait before and after Certbot because sometimes CB can stumble over it's own feet.
 sleep 1
 ## We need `yes n |` because the salesmen want to break the script with email solicitation
-/usr/bin/certbot certonly --dns-digitalocean --dns-digitalocean-credentials /opt/verb/.certbotsecrets/inkcertcbdigoc.ini --dns-digitalocean-propagation-seconds 60 --email ${INKCERTEMAIL} --agree-tos --renew-by-default -d ${DOMAIN} -d *.${DOMAIN}
+/usr/local/bin/certbot certonly --dns-digitalocean --dns-digitalocean-credentials /opt/verb/.certbotsecrets/inkcertcbdigoc.ini --dns-digitalocean-propagation-seconds 60 --email ${INKCERTEMAIL} --agree-tos --renew-by-default -d ${DOMAIN} -d *.${DOMAIN}
 #DEV: If the above fails, try removing  --dns-digitalocean-propagation-seconds 60 with this below:
 #certbot certonly --dns-digitalocean --dns-digitalocean-credentials /opt/verb/.certbotsecrets/inkcertcbdigoc.ini --email ${INKCERTEMAIL} --agree-tos --renew-by-default -d ${DOMAIN} -d *.${DOMAIN}
 

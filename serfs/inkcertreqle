@@ -181,7 +181,7 @@ fi
 ##NOTE make the system wait before and after Letsencrypt because sometimes LE can stumble over it's own feet.
 sleep 1
 ## We need `yes n |` because the salesmen want to break the script with email solicitation
-yes n | certbot --apache certonly --expand --renew-by-default -c /opt/verb/conf/inkcert/cli-ini/cli.${DOMAIN}.ini
+yes n | /usr/local/bin/certbot --apache certonly --expand --renew-by-default -c /opt/verb/conf/inkcert/cli-ini/cli.${DOMAIN}.ini
 wait
 sleep 1
 # the --quiet / -q option doesn't seem to work
