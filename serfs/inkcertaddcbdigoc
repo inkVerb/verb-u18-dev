@@ -101,7 +101,7 @@ if [ "${FIRSTINKCERTADDCB}" = "NOT_YET" ]; then
 /bin/sed -i "s/FIRSTINKCERTADDCB=\"NOT_YET\"/FIRSTINKCERTADDCBDIGOC=\"DONE\"/g" /opt/verb/conf/inkcert/inkcertstatus
 ## Create the cron job
 ### Add CB's auto updater to the cron
-/bin/echo '3 3 * * * root /opt/verb/donjon/inkcertcb-renew-all.sh' > /etc/cron.d/inkcertrenewcbcron
+/bin/echo '4 4 * * * root /opt/verb/donjon/inkcertcb-renew-all.sh' > /etc/cron.d/inkcertrenewcbcron
 /bin/chmod 0644 /etc/cron.d/inkcertrenewcbcron
 fi
 
