@@ -41,9 +41,9 @@ On a fresh Ubuntu VPS with ssh keys already installed...
 
 `apt-get install git`
 
-`cd /opt && git clone https://github.com/inkverb/verb-dev`
+`cd /opt && git clone https://github.com/inkverb/verb-u18-dev`
 
-`mv verb-dev verb && cd verb/inst`
+`mv verb-u18-dev verb && cd verb/inst`
 
 `./make-verber-preserver`
 
@@ -59,7 +59,7 @@ On a fresh Ubuntu VPS with ssh keys already installed...
 
 This: `./setupverb [host] [namespace] [tld] [email] [serverIPv4] [serverIPv6 - if none use IPv6NA ] [SSLemail] [php.file-limit] [php.up-size] [php.city] [new-port] [new-boss] [boss-pass] [update-repo - optional]`...
 
-Eg: `./setupverb johnny johnny ink email 56.22.108.77 IPv6NA letsencrypt-messages@example.com 100 1000 America/New_York 22 boss bosspassword verb-dev-update`
+Eg: `./setupverb johnny johnny ink email 56.22.108.77 IPv6NA letsencrypt-messages@example.com 100 1000 America/New_York 22 boss bosspassword verb-u18-dev-update`
 
 `reboot`
 

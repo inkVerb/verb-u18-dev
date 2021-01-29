@@ -10,7 +10,7 @@
 ## If using the domain mod (make-dommod), the namespace must be your domain.
 
 # How to use:
-## ./setupverb [host] [namespace] [tld] [email] [serverIPv4] [serverIPv6 - if none use IPv6NA ] [SSLemail] [php.file-limit] [php.up-size] [php.city] [new-port] [new-boss] [boss-pass] [update-repo - optional]
+## ./setupverb [host] [namespace] [tld] [email] [serverIPv4] [serverIPv6 - if none use IPv6NA ] [SSLemail] [php.file-limit] [php.up-size] [php.city] [new-port] [new-boss] [boss-pass] [verb-u18-dev - optional]
 # Elaborate how to use:
 ## ./setupverb [host - should be namespace or FQDN tld, unless you want to be strange] [inkVerb namespace (purcha/bin/sed) || Domain Mod domain] [FQDN tld, should be 'ink' except multiple servers for namespace] [email server tls, should be 'email' except multiple servers for namespace] [server IP] [SSL email - used for Letsencrypt and the like] [php file upload limit] [php upload size in MB] [php timezone city] [new port number for ssh/te/bin/rminal login] [new "boss" sudo user] [boss user password] [verb-update-dev - optional]
 
@@ -33,8 +33,8 @@
 # Eg:
 ## ./setupverb johnny johnny ink email 56.22.108.77 IPv6NA letsencrypt-messages@emaildomain.com 100 1000 Asia/Singapore 22 boss bosspassword
 ## ./setupverb johnny johnny ink email 56.22.108.77 ffff:894:aad8::821 letsencrypt-messages@emaildomain.com 100 1000 Europe/Bucharest 867 boss bosspassword
-## ./setupverb johnny2 johnny pink rocks 56.22.108.77 IPv6NA letsencrypt-messages@emaildomain.com 100 1000 America/New_York 5290 boss bosspassword verb-dev-update
-## ./setupverb johnny2 johnny pink rocks 56.22.108.77 ffff:894:aad8::821 letsencrypt-messages@emaildomain.com 100 1000 America/Phoenix 5290 boss bosspassword verb-dev-update
+## ./setupverb johnny2 johnny pink rocks 56.22.108.77 IPv6NA letsencrypt-messages@emaildomain.com 100 1000 America/New_York 5290 boss bosspassword verb-u18-dev-update
+## ./setupverb johnny2 johnny pink rocks 56.22.108.77 ffff:894:aad8::821 letsencrypt-messages@emaildomain.com 100 1000 America/Phoenix 5290 boss bosspassword verb-u18-dev-update
 
 ### Domain Mod:
 ## ./setupverb itsme inkisaverb.com ink 56.22.108.77 IPv6 letsencrypt-messages@emaildomain.com 100 1000 America/Detroit 22 boss bosspassword
@@ -61,7 +61,7 @@ NEWBOSSPASS="${13}"
 VUPREPO="${14}"
 
 if [ -z "${14}" ]; then
-VUPREPO="verb-dev-update"
+VUPREPO="verb-u18-dev-update"
 fi
 
 if [ -z "${13}" ]; then

@@ -61,7 +61,9 @@ To refresh and thus get certs for this subdomain, run inkcertreqle for ${OLDDOMA
 Note: Don't get Letsencrypt certs for the same core domain.tld too often or Letsencrypt will make you wait to get more.
 
 In summary: ${SUBDOMAIN}.${OLDDOMAIN} will not have SSL certs until you run:
- inkcertreqle ${OLDDOMAIN} r
+  inkcertremovele ${OLDDOMAIN}
+   ...then...
+  inkcertdole ${OLDDOMAIN}
 "
 fi
 ## inkCert-IC DONE
@@ -82,4 +84,3 @@ fi
 /bin/echo "There is no inkDKIM email record for this specific subdomain, unless you want to add one with addinkdkim. That's if you want your subdomain in an email address.
 
 So, ${SUBDOMAIN}.${OLDDOMAIN} is good to go and is equipped with CGI!"
-

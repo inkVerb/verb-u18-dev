@@ -1,7 +1,13 @@
-# Installation and information for inkVerb's "Verber" web server
-## verb-dev
+# Legacy version, no longer in development
 
-For installation, see: [HOW-TO-USE.md](https://github.com/inkVerb/verb-dev/blob/master/HOW-TO-USE.md)
+This is a legacy version meant to run on Ubuntu 18.04. Development did not continue in Ubuntu 20.04 where `snap` was overriding `apt` and `apt-get` installer package commands. In January 2021, development moved to Arch and Manjaro frameworks. That project is available at the former repo for this original project: [inkVerb/verb-dev](https://github.com/inkVerb/verb-dev).
+
+___
+
+# Installation and information for inkVerb's "Verber" web server
+## verb-u18-dev
+
+For installation, see: [HOW-TO-USE.md](https://github.com/inkVerb/verb-u18-dev/blob/master/HOW-TO-USE.md)
 
 ### Notes
 DEV version numbers have an extra digit and never end in 0, skipping it. This reserves the final number of the stable channel for vital patches.
